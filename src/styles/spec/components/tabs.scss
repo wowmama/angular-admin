@@ -1,0 +1,122 @@
+.tabs {
+  background-color: white;
+  border-bottom: 1px solid $border-color;
+  display: block;
+  position: fixed;
+  overflow: hidden;
+  top: $header-height + 1px;
+  padding: 0;
+  transition: all 0.2s ease;
+  width: calc(100% - #{$offscreen-size});
+  z-index: 800;
+
+  @include to($breakpoint-md) {
+    width: 100%;
+  }
+
+  @include between($breakpoint-md, $breakpoint-xl) {
+    width: calc(100% - #{$collapsed-size});
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0px;
+  }
+  .tabs-inner {
+    height: $tabs-height;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      overflow-y: hidden;
+      overflow-x: auto;
+    }
+
+    &::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $border-color;
+      border-radius: 3px;
+    }
+
+    .tab-item {
+      display: inline-block;
+      margin-right: 6px;
+      height: $tabs-height - 12px;
+      button {
+        height: 100%;
+        width: 100%;
+        background-color: $tab-item-bg;
+        color: $tab-item-color;
+        border-color: $tab-item-border-color;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .remove {
+          display: inline-block;
+          margin-left: 5px;
+          width: 16px;
+          font-size: 8px;
+          line-height: 16px;
+          border-radius: 50%;
+          transition: all 5ms ease;
+
+          &:hover {
+            background-color: #b4bccc;
+            transition: all 5ms ease;
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        margin-left: 6px;
+      }
+
+      &.active,
+      &.active:hover {
+        button {
+          background-color: $tab-item-active-bg;
+          color: $tab-item-active-color;
+          border-color: $tab-item-active-border-color;
+
+          &:before {
+            content: "";
+            background: $tab-item-active-color;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            position: relative;
+            margin-right: 4px;
+          }
+        }
+      }
+
+      &:hover {
+        button {
+          background-color: $tab-item-hover-bg;
+          color: $tab-item-hover-color;
+          border-color: $tab-item-hover-border-color;
+        }
+      }
+    }
+  }
+}
+
+.is-collapsed {
+  .tabs {
+    width: calc(100% - #{$collapsed-size});
+
+    @include to($breakpoint-md) {
+      width: 100%;
+    }
+
+    @include between($breakpoint-md, $breakpoint-xl) {
+      width: calc(100% - #{$offscreen-size});
+    }
+  }
+}

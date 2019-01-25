@@ -1,0 +1,250 @@
+// ---------------------------------------------------------
+// @TOC
+// ---------------------------------------------------------
+
+// + @Greyscale Colors
+// + @Bootstrap Color System
+// + @Default Colors
+// + @Inverted Colors
+// + @Others
+// + @Header Themes
+// + @Social Networks Colors
+
+// ---------------------------------------------------------
+// @Greyscale Colors
+// ---------------------------------------------------------
+
+// Colors below are ordered from lightest to darkest
+
+$grey-100: #f9fafb;
+$grey-200: #f2f3f5;
+$grey-300: #e6eaf0;
+$grey-400: #d3d9e3;
+$grey-500: #b9c2d0;
+$grey-600: #7c8695;
+$grey-700: #72777a;
+$grey-800: #565a5c;
+$grey-900: #313435;
+
+$grey-colors-alt: (
+  grey-100: $grey-100,
+  grey-200: $grey-200,
+  grey-300: $grey-300,
+  grey-400: $grey-400,
+  grey-500: $grey-500,
+  grey-600: $grey-600,
+  grey-700: $grey-700,
+  grey-800: $grey-800,
+  grey-900: $grey-900
+);
+
+// ---------------------------------------------------------
+// @Default Colors
+// ---------------------------------------------------------
+
+$default-danger: #ff3c7e;
+$default-dark: #313435;
+$default-grey: #565a5c;
+$default-info: #0f9aee;
+$default-primary: #7774e7;
+$default-success: #37c936;
+$default-text-color: #72777a;
+$default-warning: #fc0;
+$default-white: #fff;
+
+// ---------------------------------------------------------
+// @Others
+// ---------------------------------------------------------
+
+$header-height: 50px;
+$collapsed-size: 45px;
+$offscreen-size: 280px;
+$border-color: #e6ecf5;
+
+// ---------------------------------------------------------
+// @Page Container
+// ---------------------------------------------------------
+$pagecontainer-bg: $grey-100;
+
+// ---------------------------------------------------------
+// @Topbar
+// ---------------------------------------------------------
+$topbar-bg: $default-white;
+$topbar-color: $default-text-color;
+$topbar-hover-bg: $default-white;
+$topbar-hover-color: $default-dark;
+$topbar-counter-border: none;
+$topbar-counter-bg: $default-danger;
+$topbar-counter-color: $default-white;
+$topbar-counter-top: 6px;
+$topbar-counter-right: 3px;
+
+/* vali style
+$topbar-bg: #009688;
+$topbar-color: $default-white;
+$topbar-hover-bg: #00635a;
+$topbar-hover-color: $default-white;
+$topbar-counter-border: none;
+$topbar-counter-bg: $default-white;
+$topbar-counter-color: #009688;
+$topbar-counter-top: 12px;
+$topbar-counter-right: 6px;
+*/
+
+/* el-admin style
+$topbar-bg: $default-white;
+$topbar-color: #303133;
+$topbar-hover-bg: $default-white;
+$topbar-hover-color: #409eff;
+$topbar-counter-bg: #303133;
+$topbar-counter-color: $default-white;
+$topbar-counter-top: 12px;
+$topbar-counter-right: 6px;
+*/
+
+// ---------------------------------------------------------
+// @Tabs
+// ---------------------------------------------------------
+$tabs-height: 45px;
+$tab-item-bg: transparent;
+$tab-item-color: inherit;
+$tab-item-border-color: $border-color;
+$tab-item-hover-bg: transparent;
+$tab-item-hover-color: inherit;
+$tab-item-hover-border-color: $border-color;
+$tab-item-active-bg: $default-info;
+$tab-item-active-color: $default-white;
+$tab-item-active-border-color: $default-info;
+/* vali style
+*/
+
+/* el-admin style
+*/
+
+// ---------------------------------------------------------
+// @Sidebar
+// ---------------------------------------------------------
+$sidebar-logo-color: $grey-900;
+$sidebar-logo-bg: transparent;
+$sidebar-logo-width: 70px;
+$sidebar-bg: $default-white;
+$sidebar-color: $default-text-color;
+$sidebar-active-bg: transparent;
+$sidebar-active-color: $default-dark;
+$sidebar-hover-bg: transparent;
+$sidebar-hover-color: $default-dark;
+
+/* vali style
+$sidebar-logo-color: $default-white;
+$sidebar-logo-bg: #007d71;
+$sidebar-logo-width: 70px;
+$sidebar-bg: #222d32;
+$sidebar-color: $default-white;
+$sidebar-active-bg: #0d1214;
+$sidebar-active-color: $default-white;
+$sidebar-hover-bg: #0d1214;
+$sidebar-hover-color: $default-white;
+*/
+
+/* el-admin style
+$sidebar-logo-color: $default-white;
+$sidebar-logo-bg: rgb(48, 65, 86);
+$sidebar-logo-width: 70px;
+$sidebar-bg: rgb(48, 65, 86);
+$sidebar-color: $default-white;
+$sidebar-active-bg: #0d1214;
+$sidebar-active-color: #409eff;
+$sidebar-hover-bg: #001528;
+$sidebar-hover-color: $default-white;
+*/
+
+// ---------------------------------------------------------
+// @Override Bootstrap Color System Here
+// ---------------------------------------------------------
+// Color system
+
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+$grays: () !default;
+
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$blue: $md-blue-500;
+$indigo: $md-indigo-500;
+$purple: $md-purple-500;
+$pink: $md-pink-500;
+$red: $md-red-500;
+$orange: $md-orange-500;
+$yellow: $md-yellow-500;
+$green: $md-green-500;
+$teal: $md-teal-500;
+$cyan: $md-cyan-500;
+
+$colors: () !default;
+$colors: map-merge(
+  (
+    "blue": $blue,
+    "indigo": $indigo,
+    "purple": $purple,
+    "pink": $pink,
+    "red": $red,
+    "orange": $orange,
+    "yellow": $yellow,
+    "green": $green,
+    "teal": $teal,
+    "cyan": $cyan,
+    "white": $white,
+    "gray": $gray-600,
+    "gray-dark": $gray-800
+  ),
+  $colors
+);
+
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark
+  ),
+  $theme-colors
+);

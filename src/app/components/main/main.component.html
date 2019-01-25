@@ -1,0 +1,21 @@
+<div class="loader">
+  <div class="spinner"></div>
+</div>
+<div>
+  <app-sidebar></app-sidebar>
+  <!-- #Main ============================ -->
+  <div class="page-container">
+    <!-- ### $Topbar ### -->
+    <app-topbar></app-topbar>
+    <!-- ### $Tabs ### -->
+    <app-tabs></app-tabs>
+
+    <!-- ### $App Screen Content ### -->
+    <main class='main-content'>
+
+      <ng-content></ng-content>
+    </main>
+    <!-- ### $App Screen Footer ### -->
+    <app-footer></app-footer>
+  </div>
+</div>
