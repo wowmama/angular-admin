@@ -6,7 +6,7 @@ import { reducers } from './stores';
 
 @NgModule({
   declarations: [
-    ...IONE_COMPONENTS
+    ...IONE_COMPONENTS,
   ],
   imports: [
     CommonModule,

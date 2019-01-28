@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
-import { IoneState, selectIsCollapsed } from '../../stores';
+import { IoneState, selectIsSidebarCollapsed } from '../../stores';
 
 @Component({
   selector: 'app-main',
@@ -12,11 +12,11 @@ import { IoneState, selectIsCollapsed } from '../../stores';
 export class MainComponent implements OnInit, OnDestroy {
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
-  isCollapsed = this.store.pipe(
-    select(selectIsCollapsed),
-    map(isCollapsed => {
+  isSidebarCollapsed = this.store.pipe(
+    select(selectIsSidebarCollapsed),
+    map(isSidebarCollapsed => {
       return {
-        'is-collapsed': isCollapsed
+        'is-collapsed': isSidebarCollapsed
       };
     }),
     takeUntil(this.destroyed$)

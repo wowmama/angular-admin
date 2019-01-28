@@ -1,15 +1,19 @@
 import { Menu } from '../../models/menu.model';
 import * as fromMenu from '../actions/menu.action';
 export interface MenuState {
-  isCollapsed: boolean;
+  isSidebarCollapsed: boolean;
   menus: Menu[];
   breadcrumbs: Menu[];
+  isAccountDropDownShow: boolean;
+  isNotificationDropDownShow: boolean;
 }
 
 export const initailMenuState: MenuState = {
-  isCollapsed: false,
+  isSidebarCollapsed: false,
   menus: [],
-  breadcrumbs: []
+  breadcrumbs: [],
+  isAccountDropDownShow: false,
+  isNotificationDropDownShow: false
 };
 
 export function reducer(
@@ -33,7 +37,31 @@ export function reducer(
     case fromMenu.ActionTypes.ToggleSidebar: {
       return {
         ...state,
-        isCollapsed: !state.isCollapsed
+        isSidebarCollapsed: !state.isSidebarCollapsed
+      };
+    }
+    case fromMenu.ActionTypes.OpenNotificationsDropdownMenu: {
+      return {
+        ...state,
+        isNotificationDropDownShow: true
+      };
+    }
+    case fromMenu.ActionTypes.CloseNotificationsDropdownMenu: {
+      return {
+        ...state,
+        isNotificationDropDownShow: false
+      };
+    }
+    case fromMenu.ActionTypes.OpenAccountInfoDropdownMenu: {
+      return {
+        ...state,
+        isAccountDropDownShow: true
+      };
+    }
+    case fromMenu.ActionTypes.CloseAccountInfoDropdownMenu: {
+      return {
+        ...state,
+        isAccountDropDownShow: false
       };
     }
   }

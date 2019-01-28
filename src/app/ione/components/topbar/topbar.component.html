@@ -18,9 +18,10 @@
       </li> -->
     </ul>
     <ul class="nav-right">
-      <li class="notifications dropdown">
+      <li #notifications [ngClass]="isNotificationShow | async" class="notifications dropdown" (click)="handleNotificationsClick()"
+        (appClickOutside)="handleNotificationsClose()">
         <span class="counter">3</span>
-        <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
+        <a class="dropdown-toggle no-after" data-toggle="dropdown">
           <i class="ti-bell"></i>
         </a>
 
@@ -179,8 +180,9 @@
           </li>
         </ul>
       </li> -->
-      <li class="account-info dropdown">
-        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+      <li #accountInfo [ngClass]="isAccountInfoShow | async" class="account-info dropdown" (click)="handleAccountInfoClick()"
+        (appClickOutside)="handleAccountInfoClose()">
+        <a class="dropdown-toggle" data-toggle="dropdown">
           <div class="account-img">
             <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
           </div>

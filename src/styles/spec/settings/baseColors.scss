@@ -69,25 +69,25 @@ $pagecontainer-bg: $grey-100;
 // ---------------------------------------------------------
 // @Topbar
 // ---------------------------------------------------------
-// $topbar-bg: $default-white;
-// $topbar-color: $default-text-color;
-// $topbar-hover-bg: $default-white;
-// $topbar-hover-color: $default-dark;
-// $topbar-counter-border: none;
-// $topbar-counter-bg: $default-danger;
-// $topbar-counter-color: $default-white;
-// $topbar-counter-top: 6px;
-// $topbar-counter-right: 3px;
-
-$topbar-bg: #009688;
-$topbar-color: $default-white;
-$topbar-hover-bg: #00635a;
-$topbar-hover-color: $default-white;
+$topbar-bg: $default-white;
+$topbar-color: $default-text-color;
+$topbar-hover-bg: $default-white;
+$topbar-hover-color: $default-dark;
 $topbar-counter-border: none;
-$topbar-counter-bg: $default-white;
-$topbar-counter-color: #009688;
+$topbar-counter-bg: $default-danger;
+$topbar-counter-color: $default-white;
 $topbar-counter-top: 6px;
 $topbar-counter-right: 3px;
+
+// $topbar-bg: #009688;
+// $topbar-color: $default-white;
+// $topbar-hover-bg: #00635a;
+// $topbar-hover-color: $default-white;
+// $topbar-counter-border: none;
+// $topbar-counter-bg: $default-white;
+// $topbar-counter-color: #009688;
+// $topbar-counter-top: 6px;
+// $topbar-counter-right: 3px;
 
 /* el-admin style
 $topbar-bg: $default-white;

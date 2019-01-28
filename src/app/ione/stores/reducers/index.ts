@@ -21,11 +21,19 @@ export const selectMenus = createSelector(
   selectMenuState,
   menuState => menuState.menus
 );
-export const selectIsCollapsed = createSelector(
+export const selectIsSidebarCollapsed = createSelector(
   selectMenuState,
-  menuState => menuState.isCollapsed
+  menuState => menuState.isSidebarCollapsed
 );
 export const selectBreadcrumbs = createSelector(
   selectMenuState,
   menuState => menuState.breadcrumbs
+);
+export const selectIsAccountDropDownShow = createSelector(
+  selectMenuState,
+  menuState => menuState.isAccountDropDownShow
+);
+export const selectIsNotificationDropDownShow = createSelector(
+  selectMenuState,
+  menuState => menuState.isNotificationDropDownShow
 );
