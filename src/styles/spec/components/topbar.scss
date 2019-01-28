@@ -89,9 +89,55 @@
           top: $topbar-counter-top;
         }
 
-        .dropdown-menu {
+        > .dropdown-menu {
+          background-color: $topbar-bg;
           min-width: 350px;
           padding: 0;
+
+          > li:first-child {
+            color: $topbar-color;
+            border-bottom: 1px solid $border-color;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-weight: 600;
+            font-size: 0.87rem;
+            i {
+              padding-right: 10px;
+            }
+          }
+          > li:last-child {
+            color: $topbar-color;
+            border-top: 1px solid $border-color;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            text-align: center;
+            font-size: 0.87rem;
+            a {
+              cursor: pointer;
+            }
+          }
+          > li:nth-child(2) {
+            ul {
+              font-size: 0.87rem;
+              padding: 0px;
+              margin: 0px;
+              list-style: none;
+              position: relative;
+              overflow-y: auto;
+              a {
+                color: $topbar-color;
+                text-decoration: none;
+                &:hover {
+                  background-color: $topbar-hover-bg;
+                  color: $topbar-hover-color;
+                }
+              }
+            }
+          }
 
           @include to($breakpoint-sm) {
             max-width: 300px;
