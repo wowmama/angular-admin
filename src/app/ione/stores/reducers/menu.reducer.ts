@@ -22,6 +22,7 @@ export function reducer(
       };
     }
     case fromMenu.ActionTypes.SidebarChange: {
+      console.log(mapNewMenus(state.menus, action.activeUuid));
       return {
         ...state,
         menus: mapNewMenus(state.menus, action.activeUuid)
@@ -51,6 +52,7 @@ function mapNewMenus(menus: Menu[], uuid: string): Menu[] {
         };
       } else if (menu.subMenus && menu.subMenus.length > 0) {
         const subResult = mapFn(menu.subMenus, activeUuid);
+        isOpen = isOpen ? isOpen : subResult.isOpen;
         return {
           ...menu,
           subMenus: subResult.menus,
