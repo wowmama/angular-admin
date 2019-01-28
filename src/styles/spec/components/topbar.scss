@@ -23,10 +23,6 @@
     width: 100%;
   }
 
-  @include between($breakpoint-md, $breakpoint-xl) {
-    width: calc(100% - #{$collapsed-size});
-  }
-
   .header-container {
     @include clearfix;
 
@@ -200,10 +196,6 @@
 
     @include to($breakpoint-md) {
       width: 100%;
-    }
-
-    @include between($breakpoint-md, $breakpoint-xl) {
-      width: calc(100% - #{$offscreen-size});
     }
   }
 }

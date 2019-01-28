@@ -1,7 +1,7 @@
 <div class="loader">
   <div class="spinner"></div>
 </div>
-<div>
+<div [ngClass]="isCollapsed | async">
   <app-sidebar></app-sidebar>
   <!-- #Main ============================ -->
   <div class="page-container">

@@ -26,108 +26,8 @@
     list-style-type: none;
   }
 
-  @include between($breakpoint-md, $breakpoint-xl) {
-    width: $collapsed-size;
-
-    .sidebar-inner {
-      .sidebar-logo {
-        border-bottom: 1px solid transparent;
-        padding: 0;
-
-        a {
-          .logo {
-            background-position: center center;
-          }
-        }
-      }
-
-      .sidebar-menu {
-        overflow-x: hidden;
-
-        > li {
-          > a {
-            .title {
-              display: none;
-            }
-          }
-        }
-
-        li {
-          &.dropdown {
-            .arrow {
-              opacity: 0;
-            }
-
-            &.open {
-              ul.dropdown-menu {
-                display: none !important;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    &:not(:hover) {
-      .sidebar-logo {
-        a {
-          .logo {
-            width: $collapsed-size;
-          }
-        }
-      }
-      .sidebar-menu {
-        > li {
-          > a {
-            padding-right: 10px;
-            justify-content: center;
-
-            > .icon-holder {
-              margin-right: 0px;
-            }
-          }
-        }
-      }
-    }
-
-    &:hover {
-      width: $offscreen-size;
-
-      .sidebar-inner {
-        .sidebar-logo {
-          border-bottom: 1px solid $border-color;
-          padding: 0 20px;
-        }
-
-        .sidebar-menu {
-          > li {
-            > a {
-              .title {
-                display: inline-block;
-              }
-            }
-          }
-
-          li {
-            &.dropdown {
-              .arrow {
-                opacity: 1;
-              }
-            }
-
-            &.open {
-              > ul.dropdown-menu {
-                display: block !important;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   @include to($breakpoint-md) {
-    left: -$offscreen-size;
+    left: 0;
     width: calc(#{$offscreen-size} - 30px);
   }
 }
@@ -152,14 +52,15 @@
   line-height: 0;
   padding: 0 20px;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
 
   a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     width: 100%;
 
     .logo {
-      background-position: center left;
-      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -170,6 +71,7 @@
 
     .logo-text {
       color: $sidebar-logo-color;
+      flex: 1;
     }
   }
 
@@ -178,17 +80,14 @@
     float: right;
     font-size: 18px;
     line-height: calc(#{$header-height} - 1px);
-
     a {
       color: $sidebar-color;
     }
-
-    @include to($breakpoint-md) {
-      display: inline-block;
-    }
-
     @include between($breakpoint-md, $breakpoint-xl) {
       display: none;
+    }
+    @include to($breakpoint-md) {
+      display: inline-block;
     }
   }
 }
@@ -231,6 +130,11 @@
 
       &.open {
         > a.sidebar-link {
+          background-color: $sidebar-active-bg;
+          color: $sidebar-active-color;
+          .icon-holder {
+            color: $sidebar-active-color;
+          }
           > .arrow {
             transform: rotate(90deg);
           }
@@ -238,7 +142,6 @@
 
         > ul.dropdown-menu {
           display: block;
-          visibility: visible;
           background-color: transparent;
           border-radius: 0;
           border: 0;
@@ -261,7 +164,6 @@
       position: relative;
       white-space: nowrap;
       height: 45px;
-      word-wrap: break-word;
 
       .icon-holder {
         color: $sidebar-color;
@@ -296,51 +198,57 @@
     }
   }
 
-  > li {
+  > app-sidebar-item {
     &:nth-child(1) {
-      margin-top: 30px;
-    }
-
-    > ul.dropdown-menu {
       > li {
-        > a.sidebar-link {
-          padding-left: 25px;
-        }
-        > ul.dropdown-menu {
+        margin-top: 30px;
+      }
+    }
+    > li {
+      > ul.dropdown-menu {
+        > app-sidebar-item {
           > li {
             > a.sidebar-link {
-              padding-left: 40px;
+              padding-left: 25px;
             }
             > ul.dropdown-menu {
-              > li {
-                > a.sidebar-link {
-                  padding-left: 55px;
+              > app-sidebar-item {
+                > li {
+                  > a.sidebar-link {
+                    padding-left: 40px;
+                  }
+                  > ul.dropdown-menu {
+                    > app-sidebar-item {
+                      > li {
+                        > a.sidebar-link {
+                          padding-left: 55px;
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
-    }
 
-    > a.sidebar-link {
-      &.active::before {
-        background: $sidebar-active-color;
-        border-radius: 50%;
-        content: "";
-        display: block;
-        height: 8px;
-        left: -4px;
-        position: absolute;
-        top: calc(50% - 4px);
-        width: 8px;
+      > a.sidebar-link {
+        > a.active {
+          border-left: 3px solid $sidebar-active-color;
+        }
+        > .icon-holder {
+          border-radius: 6px;
+          font-size: 17px;
+          margin-right: 15px;
+          width: 35px;
+        }
       }
 
-      > .icon-holder {
-        border-radius: 6px;
-        font-size: 17px;
-        margin-right: 15px;
-        width: 35px;
+      &.open {
+        > a.sidebar-link {
+          border-left: 3px solid $sidebar-active-color;
+        }
       }
     }
   }
@@ -352,93 +260,39 @@
 
 .is-collapsed {
   .sidebar {
-    @include from($breakpoint-xl) {
-      width: $collapsed-size;
+    width: $collapsed-size;
 
-      .sidebar-inner {
-        .sidebar-logo {
-          border-bottom: 1px solid transparent;
-          padding: 0;
-
-          a {
-            .logo {
-              background-position: center center;
-              width: $collapsed-size;
-            }
+    .sidebar-inner {
+      .sidebar-logo {
+        border-bottom: 1px solid transparent;
+        padding: 0;
+        a {
+          .logo {
+            width: $collapsed-size;
+          }
+          .logo-text {
+            display: none;
           }
         }
+      }
 
-        .sidebar-menu {
-          overflow-x: hidden;
-
+      .sidebar-menu {
+        > app-sidebar-item {
           > li {
-            > a {
-              .title {
+            > a.sidebar-link {
+              justify-content: center;
+              padding-right: 10px;
+              .icon-holder {
+                margin-right: 0px;
+              }
+              .title,
+              .arrow {
                 display: none;
               }
             }
-          }
-
-          li {
-            &.dropdown {
-              .arrow {
-                opacity: 0;
-              }
-
-              &.open {
-                ul.dropdown-menu {
-                  display: none !important;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      &:not(:hover) {
-        .sidebar-menu {
-          > li {
-            > a {
-              padding-right: 10px;
-              justify-content: center;
-
-              > .icon-holder {
-                margin-right: 0px;
-              }
-            }
-          }
-        }
-      }
-
-      &:hover {
-        width: $offscreen-size;
-
-        .sidebar-inner {
-          .sidebar-logo {
-            border-bottom: 1px solid $border-color;
-            padding: 0 20px;
-          }
-
-          .sidebar-menu {
-            > li {
-              > a {
-                .title {
-                  display: inline-block;
-                }
-              }
-            }
-
-            li {
-              &.dropdown {
-                .arrow {
-                  opacity: 1;
-                }
-              }
-
-              &.open {
-                > ul.dropdown-menu {
-                  display: block !important;
-                }
+            &.open {
+              > ul.dropdown-menu {
+                display: none;
               }
             }
           }
@@ -446,62 +300,40 @@
       }
     }
 
-    @include between($breakpoint-md, $breakpoint-xl) {
+    &:hover {
       width: $offscreen-size;
-
       .sidebar-inner {
         .sidebar-logo {
           border-bottom: 1px solid $border-color;
           padding: 0 20px;
-
-          > a {
-            .logo {
-              background-position: center left;
-              width: 150px;
-            }
-          }
-        }
-
-        .sidebar-menu {
-          > li {
-            > a {
-              .title {
-                display: inline-block;
-              }
-            }
-          }
-
-          li {
-            &.dropdown {
-              .arrow {
-                opacity: 1;
-              }
-            }
-
-            &.open {
-              > ul.dropdown-menu {
-                display: block !important;
-              }
-            }
-          }
-        }
-      }
-
-      &:not(:hover) {
-        .sidebar-logo {
           a {
             .logo {
-              width: $collapsed-size;
+              width: $sidebar-logo-width;
+            }
+            .logo-text {
+              display: inline-block;
             }
           }
         }
-        .sidebar-menu {
-          > li {
-            > a {
-              display: block;
 
-              > .icon-holder {
-                margin-right: 14px;
+        .sidebar-menu {
+          > app-sidebar-item {
+            > li {
+              > a {
+                justify-content: start;
+                padding-right: 0px;
+                .icon-holder {
+                  margin-right: 15px;
+                }
+                .title,
+                .arrow {
+                  display: block;
+                }
+              }
+              &.open {
+                > ul.dropdown-menu {
+                  display: block;
+                }
               }
             }
           }
@@ -510,7 +342,7 @@
     }
 
     @include to($breakpoint-md) {
-      left: 0;
+      left: -$offscreen-size;
     }
   }
 }
