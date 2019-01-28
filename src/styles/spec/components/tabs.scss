@@ -1,5 +1,5 @@
 .tabs {
-  background-color: white;
+  background-color: $tabs-bg;
   border-bottom: 1px solid $border-color;
   display: block;
   position: fixed;
@@ -68,7 +68,7 @@
         }
       }
 
-      &:nth-child(1) {
+      &:first-child {
         margin-left: 6px;
       }
 

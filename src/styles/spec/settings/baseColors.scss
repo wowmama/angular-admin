@@ -69,25 +69,25 @@ $pagecontainer-bg: $grey-100;
 // ---------------------------------------------------------
 // @Topbar
 // ---------------------------------------------------------
-// $topbar-bg: $default-white;
-// $topbar-color: $default-text-color;
-// $topbar-hover-bg: $default-white;
-// $topbar-hover-color: $default-dark;
-// $topbar-counter-border: none;
-// $topbar-counter-bg: $default-danger;
-// $topbar-counter-color: $default-white;
-// $topbar-counter-top: 6px;
-// $topbar-counter-right: 3px;
-
-$topbar-bg: #009688;
-$topbar-color: $default-white;
-$topbar-hover-bg: #00635a;
-$topbar-hover-color: $default-white;
+$topbar-bg: $default-white;
+$topbar-color: $default-text-color;
+$topbar-hover-bg: $default-white;
+$topbar-hover-color: $default-dark;
 $topbar-counter-border: none;
-$topbar-counter-bg: $default-white;
-$topbar-counter-color: #009688;
+$topbar-counter-bg: $default-danger;
+$topbar-counter-color: $default-white;
 $topbar-counter-top: 6px;
 $topbar-counter-right: 3px;
+
+// $topbar-bg: #009688;
+// $topbar-color: $default-white;
+// $topbar-hover-bg: #00635a;
+// $topbar-hover-color: $default-white;
+// $topbar-counter-border: none;
+// $topbar-counter-bg: $default-white;
+// $topbar-counter-color: #009688;
+// $topbar-counter-top: 6px;
+// $topbar-counter-right: 3px;
 
 /* el-admin style
 $topbar-bg: $default-white;
@@ -104,6 +104,7 @@ $topbar-counter-right: 6px;
 // @Tabs
 // ---------------------------------------------------------
 $tabs-height: 45px;
+$tabs-bg: $default-white;
 $tab-item-bg: transparent;
 $tab-item-color: inherit;
 $tab-item-border-color: $border-color;
@@ -113,8 +114,18 @@ $tab-item-hover-border-color: $border-color;
 $tab-item-active-bg: $default-info;
 $tab-item-active-color: $default-white;
 $tab-item-active-border-color: $default-info;
-/* vali style
-*/
+
+// $tabs-height: 45px;
+// $tabs-bg: $default-white;
+// $tab-item-bg: $default-white;
+// $tab-item-color: inherit;
+// $tab-item-border-color: $border-color;
+// $tab-item-hover-bg: #009688;
+// $tab-item-hover-color: $default-white;
+// $tab-item-hover-border-color: #009688;
+// $tab-item-active-bg: #009688;
+// $tab-item-active-color: $default-white;
+// $tab-item-active-border-color: #009688;
 
 /* el-admin style
 */
@@ -132,17 +143,15 @@ $sidebar-active-color: $default-dark;
 $sidebar-hover-bg: transparent;
 $sidebar-hover-color: $default-dark;
 
-/*
-$sidebar-logo-color: $default-white;
-$sidebar-logo-bg: #007d71;
-$sidebar-logo-width: 70px;
-$sidebar-bg: #222d32;
-$sidebar-color: $default-white;
-$sidebar-active-bg: #0d1214;
-$sidebar-active-color: $default-white;
-$sidebar-hover-bg: #0d1214;
-$sidebar-hover-color: $default-white;
-*/
+// $sidebar-logo-color: $default-white;
+// $sidebar-logo-bg: #007d71;
+// $sidebar-logo-width: 70px;
+// $sidebar-bg: #222d32;
+// $sidebar-color: $default-white;
+// $sidebar-active-bg: #0d1214;
+// $sidebar-active-color: $default-white;
+// $sidebar-hover-bg: #0d1214;
+// $sidebar-hover-color: $default-white;
 
 /* el-admin style
 $sidebar-logo-color: $default-white;

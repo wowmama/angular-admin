@@ -3,7 +3,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { Menu } from '../../models/menu.model';
 import { IoneState } from '../../stores';
-import { SidebarChange } from '../../stores/actions/menu.action';
+import { AciteSidebarItem, ToggleSidebarItem } from '../../stores/actions/menu.action';
 
 @Component({
   selector: 'app-sidebar-item',
@@ -21,7 +21,11 @@ export class SidebarItemComponent implements OnInit {
   ngOnInit() {
   }
   handleMenuClick() {
-    this.store.dispatch(new SidebarChange(this.menu.uuid));
+    if (this.menu.link) {
+      this.store.dispatch(new AciteSidebarItem(this.menu.uuid));
+    } else {
+      this.store.dispatch(new ToggleSidebarItem(this.menu.uuid));
+    }
   }
   get dropdownClass() {
     return of({

@@ -1,27 +1,9 @@
 <div class="tabs">
   <ul class="tabs-inner" #tabsInner>
-    <li class="tab-item active">
-      <button>
-        <span>营销活动维护</span>
-        <span class="remove" aria-hidden="true">&times;</span>
-      </button>
-    </li>
-    <li class="tab-item">
-      <button>
-        <span>售后单维护</span>
-        <span class="remove" aria-hidden="true">&times;</span>
-      </button>
-    </li>
-    <li class="tab-item">
-      <button>
-        <span>安装供维护</span>
-        <span class="remove" aria-hidden="true">&times;</span>
-      </button>
-    </li>
-    <li class="tab-item">
-      <button>
-        <span>签单员维护</span>
-        <span class="remove" aria-hidden="true">&times;</span>
+    <li *ngFor="let tab of tabs | async" class="tab-item" [ngClass]="tab.class">
+      <button (click)="handleTabClick(tab)">
+        <span>{{tab.name}}</span>
+        <span class="remove" aria-hidden="true" (click)="handleTabClose(tab)">&times;</span>
       </button>
     </li>
   </ul>
