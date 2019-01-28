@@ -25,3 +25,7 @@ export const selectIsCollapsed = createSelector(
   selectMenuState,
   menuState => menuState.isCollapsed
 );
+export const selectBreadcrumbs = createSelector(
+  selectMenuState,
+  menuState => menuState.breadcrumbs
+);

@@ -6,12 +6,19 @@
           <i class="ti-menu"></i>
         </a>
       </li>
+      <li>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li *ngFor="let breadcrumb of breadcrumbs | async" class="breadcrumb-item">{{breadcrumb.name}}</li>
+          </ol>
+        </nav>
+      </li>
       <!-- <li class="search-input active">
         <input class="form-control" type="text" placeholder="Search...">
       </li> -->
     </ul>
     <ul class="nav-right">
-      <!-- <li class="notifications dropdown">
+      <li class="notifications dropdown">
         <span class="counter">3</span>
         <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
           <i class="ti-bell"></i>
@@ -83,8 +90,8 @@
             </span>
           </li>
         </ul>
-      </li> -->
-      <li class="notifications dropdown">
+      </li>
+      <!-- <li class="notifications dropdown">
         <span class="counter">3</span>
         <a href="" class="dropdown-toggle no-after" data-toggle="dropdown">
           <i class="ti-email"></i>
@@ -171,39 +178,39 @@
             </span>
           </li>
         </ul>
-      </li>
-      <li class="dropdown">
-        <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
-          <div class="peer mR-10">
+      </li> -->
+      <li class="account-info dropdown">
+        <a href="" class="dropdown-toggle" data-toggle="dropdown">
+          <div class="account-img">
             <img class="w-2r bdrs-50p" src="https://randomuser.me/api/portraits/men/10.jpg" alt="">
           </div>
-          <div class="peer">
-            <span class="fsz-sm c-grey-900">John Doe</span>
+          <div class="account-name">
+            <span>John Doe</span>
           </div>
         </a>
-        <ul class="dropdown-menu fsz-sm">
+        <ul class="dropdown-menu">
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-              <i class="ti-settings mR-10"></i>
+            <a href="">
+              <i class="ti-settings"></i>
               <span>Setting</span>
             </a>
           </li>
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-              <i class="ti-user mR-10"></i>
+            <a href="">
+              <i class="ti-user"></i>
               <span>Profile</span>
             </a>
           </li>
           <li>
-            <a href="email.html" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-              <i class="ti-email mR-10"></i>
+            <a href="email.html">
+              <i class="ti-email"></i>
               <span>Messages</span>
             </a>
           </li>
           <li role="separator" class="divider"></li>
           <li>
-            <a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700">
-              <i class="ti-power-off mR-10"></i>
+            <a href="">
+              <i class="ti-power-off"></i>
               <span>Logout</span>
             </a>
           </li>

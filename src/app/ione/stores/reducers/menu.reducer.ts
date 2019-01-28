@@ -3,11 +3,13 @@ import * as fromMenu from '../actions/menu.action';
 export interface MenuState {
   isCollapsed: boolean;
   menus: Menu[];
+  breadcrumbs: Menu[];
 }
 
 export const initailMenuState: MenuState = {
   isCollapsed: false,
-  menus: []
+  menus: [],
+  breadcrumbs: []
 };
 
 export function reducer(
@@ -22,10 +24,10 @@ export function reducer(
       };
     }
     case fromMenu.ActionTypes.SidebarChange: {
-      console.log(mapNewMenus(state.menus, action.activeUuid));
       return {
         ...state,
-        menus: mapNewMenus(state.menus, action.activeUuid)
+        menus: mapNewMenus(state.menus, action.activeUuid),
+        breadcrumbs: getBreadcrumbs(state.menus, action.activeUuid)
       };
     }
     case fromMenu.ActionTypes.ToggleSidebar: {
@@ -73,16 +75,16 @@ function mapNewMenus(menus: Menu[], uuid: string): Menu[] {
 }
 
 // 取得麵包屑
-function getBreadcrumbs(menus: Menu[], activeMenu: Menu): Menu[] {
-  const searchFn = (m: Menu[], am: Menu): Menu[] => {
+function getBreadcrumbs(menus: Menu[], uuid: string): Menu[] {
+  const searchFn = (m: Menu[], activeUuid: string): Menu[] => {
     let results = null;
     for (let i = 0; i < m.length; i++) {
       const menu = m[i];
-      if (menu.uuid === am.uuid) {
+      if (menu.uuid === activeUuid) {
         results = [menu];
         break;
       } else if (menu.subMenus && menu.subMenus.length > 0) {
-        const searchMenus = searchFn(menu.subMenus, am);
+        const searchMenus = searchFn(menu.subMenus, activeUuid);
         results = searchMenus.length > 0 ? [menu, ...searchMenus] : [];
         if (results.length > 0) {
           break;
@@ -93,5 +95,5 @@ function getBreadcrumbs(menus: Menu[], activeMenu: Menu): Menu[] {
     }
     return results;
   };
-  return searchFn(menus, activeMenu);
+  return searchFn(menus, uuid);
 }

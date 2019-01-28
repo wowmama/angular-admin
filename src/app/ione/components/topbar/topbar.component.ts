@@ -1,7 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { ReplaySubject } from 'rxjs';
-import { IoneState } from '../../stores';
+import { select, Store } from '@ngrx/store';
+import { Observable, ReplaySubject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Menu } from '../../models/menu.model';
+import { IoneState, selectBreadcrumbs } from '../../stores';
 import { ToggleSidebar } from '../../stores/actions/menu.action';
 
 @Component({
@@ -13,6 +15,10 @@ export class TopbarComponent implements OnInit, OnDestroy {
 
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
+  breadcrumbs: Observable<Menu[]> = this.store.pipe(
+    select(selectBreadcrumbs),
+    takeUntil(this.destroyed$)
+  );
 
   constructor(
     private store: Store<IoneState>

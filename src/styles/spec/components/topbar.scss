@@ -62,7 +62,17 @@
           }
         }
       }
-
+      .breadcrumb {
+        margin: 0;
+        background-color: inherit;
+        line-height: $header-height;
+        min-height: $header-height;
+        padding: 0px;
+        .breadcrumb-item,
+        .breadcrumb-item::before {
+          color: $topbar-color;
+        }
+      }
       .notifications {
         position: relative;
 
@@ -85,6 +95,44 @@
 
           @include to($breakpoint-sm) {
             max-width: 300px;
+          }
+        }
+      }
+      .account-info {
+        > a {
+          color: $topbar-color;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: flex-start;
+          flex-flow: row wrap;
+          height: auto;
+          max-width: 100%;
+          margin: 0;
+          line-height: 1;
+          align-items: center;
+          flex-wrap: nowrap;
+          .account-img {
+            margin-right: 10px;
+          }
+        }
+        > .dropdown-menu {
+          background-color: $topbar-bg;
+          font-size: 0.87rem;
+          a {
+            color: $topbar-color;
+            line-height: 1.5;
+            min-height: auto;
+            padding: 5px 15px;
+            text-decoration: none;
+            display: block;
+            i {
+              margin-right: 10px;
+            }
+
+            &:hover {
+              background-color: $topbar-hover-bg;
+              color: $topbar-hover-color;
+            }
           }
         }
       }

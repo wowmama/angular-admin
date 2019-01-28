@@ -122,16 +122,17 @@ $tab-item-active-border-color: $default-info;
 // ---------------------------------------------------------
 // @Sidebar
 // ---------------------------------------------------------
-// $sidebar-logo-color: $grey-900;
-// $sidebar-logo-bg: transparent;
-// $sidebar-logo-width: 70px;
-// $sidebar-bg: $default-white;
-// $sidebar-color: $default-text-color;
-// $sidebar-active-bg: transparent;
-// $sidebar-active-color: $default-dark;
-// $sidebar-hover-bg: transparent;
-// $sidebar-hover-color: $default-dark;
+$sidebar-logo-color: $grey-900;
+$sidebar-logo-bg: transparent;
+$sidebar-logo-width: 70px;
+$sidebar-bg: $default-white;
+$sidebar-color: $default-text-color;
+$sidebar-active-bg: transparent;
+$sidebar-active-color: $default-dark;
+$sidebar-hover-bg: transparent;
+$sidebar-hover-color: $default-dark;
 
+/*
 $sidebar-logo-color: $default-white;
 $sidebar-logo-bg: #007d71;
 $sidebar-logo-width: 70px;
@@ -141,6 +142,7 @@ $sidebar-active-bg: #0d1214;
 $sidebar-active-color: $default-white;
 $sidebar-hover-bg: #0d1214;
 $sidebar-hover-color: $default-white;
+*/
 
 /* el-admin style
 $sidebar-logo-color: $default-white;
