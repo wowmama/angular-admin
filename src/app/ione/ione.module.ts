@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { IONE_COMPONENTS } from './components';
+import { IONE_SERVICES } from './services';
 import { reducers } from './stores';
 
 @NgModule({
@@ -15,6 +16,8 @@ import { reducers } from './stores';
   exports: [
     ...IONE_COMPONENTS,
   ],
-  providers: [],
+  providers: [
+    ...IONE_SERVICES
+  ],
 })
 export class IoneModule { }

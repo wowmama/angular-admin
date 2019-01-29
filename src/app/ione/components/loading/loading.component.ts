@@ -37,7 +37,7 @@ export class LoadingComponent implements OnInit {
   @Input() set fadeColor(fadeColor: string) {
     this.fadeColorSubject.next(fadeColor);
   }
-  private textSubject = new BehaviorSubject<string>('努力加载中...');
+  private textSubject = new BehaviorSubject<string>('');
   @Input() set text(text: string) {
     this.textSubject.next(text);
   }

@@ -1,4 +1,6 @@
-<app-loading></app-loading>
+<ng-container *ngIf="isLoading$ | async">
+  <app-loading [text]="(loading$ | async).text"></app-loading>
+</ng-container>
 <div [ngClass]="isSidebarCollapsed | async">
   <app-sidebar></app-sidebar>
   <!-- #Main ============================ -->

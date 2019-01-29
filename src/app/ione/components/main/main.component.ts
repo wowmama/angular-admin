@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
-import { IoneState, selectIsSidebarCollapsed } from '../../stores';
+import { IoneState, selectIsLoading, selectIsSidebarCollapsed, selectLoading } from '../../stores';
 
 @Component({
   selector: 'app-main',
@@ -21,6 +21,16 @@ export class MainComponent implements OnInit, OnDestroy {
     }),
     takeUntil(this.destroyed$)
   );
+
+  isLoading$ = this.store.pipe(
+    select(selectIsLoading),
+    takeUntil(this.destroyed$)
+  );
+  loading$ = this.store.pipe(
+    select(selectLoading),
+    takeUntil(this.destroyed$)
+  );
+
   constructor(
     private store: Store<IoneState>
   ) { }
