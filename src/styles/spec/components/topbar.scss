@@ -159,6 +159,9 @@
           flex-wrap: nowrap;
           .account-img {
             margin-right: 10px;
+            i {
+              font-size: 1.5rem;
+            }
           }
         }
         > .dropdown-menu {

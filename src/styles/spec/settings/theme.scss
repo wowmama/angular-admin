@@ -1,0 +1,37 @@
+$header-height: 70px; // topbar高度
+$collapsed-size: 45px; // sidebar收起來的寬度
+$offscreen-size: 280px; // sidebar展開的寬度
+$border-width: 1px; // border寬度
+$border-color: rgba(0, 0, 0, 0.0625); // border顏色
+
+$pagecontainer-bg: $grey-100; // 主要區域背景顏色(padding)
+
+$topbar-bg: $default-white; // topbar背景顏色
+$topbar-color: $default-text-color; // tobar字體顏色
+$topbar-hover-bg: $default-white; // topbar hover背景顏色
+$topbar-hover-color: $default-dark; // topbar hover字體顏色
+$topbar-counter-border: none; // 消息通知數字的border顏色
+$topbar-counter-bg: $default-danger; // 消息通知數字背景顏色
+$topbar-counter-color: $default-white; // 消息通知數字字體顏色
+
+$tabs-height: 45px; // tabs條高度
+$tabs-bg: $default-white; // tabs條背景顏色
+$tab-item-bg: transparent; // 單一個tab item的背景顏色
+$tab-item-color: inherit; // 單一個tab item的字體顏色
+$tab-item-border-color: $border-color; // 單一個tab item border顏色
+$tab-item-hover-bg: transparent; // 單一個tab item hover 的背景顏色
+$tab-item-hover-color: inherit; // 單一個tab item hover 的字體顏色
+$tab-item-hover-border-color: $border-color; // 單一個tab item border hover 顏色
+$tab-item-active-bg: $default-info; // 單一個tab item 激活的背景顏色
+$tab-item-active-color: $default-white; // 單一個tab item 激活的字體顏色
+$tab-item-active-border-color: $default-info; // 單一個tab item border 激活顏色
+
+$sidebar-logo-color: $grey-900; // sidebar 上方logo字體顏色
+$sidebar-logo-bg: transparent; // sidebar 上方logo背景顏色
+$sidebar-logo-width: 70px; // sidebar 上方logo圖示寬度
+$sidebar-bg: $default-white; // sidebar 背景顏色
+$sidebar-color: $default-text-color; // sidebar 字體顏色
+$sidebar-active-bg: transparent; // sidebar 激活背景顏色
+$sidebar-active-color: $default-dark; // sidebar 激活字體顏色
+$sidebar-hover-bg: transparent; // sidebar hover背景顏色
+$sidebar-hover-color: $default-dark; // sidebar hover字體顏色

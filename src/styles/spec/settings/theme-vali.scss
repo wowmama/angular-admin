@@ -1,0 +1,37 @@
+$header-height: 70px; // topbar高度
+$collapsed-size: 45px; // sidebar收起來的寬度
+$offscreen-size: 280px; // sidebar展開的寬度
+$border-width: 1px; // border寬度
+$border-color: rgba(0, 0, 0, 0.0625); // border顏色
+
+$pagecontainer-bg: $grey-100; // 主要區域背景顏色(padding)
+
+$topbar-bg: #009688;
+$topbar-color: $default-white;
+$topbar-hover-bg: #00635a;
+$topbar-hover-color: $default-white;
+$topbar-counter-border: none;
+$topbar-counter-bg: $default-white;
+$topbar-counter-color: #009688;
+
+$tabs-height: 45px;
+$tabs-bg: $default-white;
+$tab-item-bg: $default-white;
+$tab-item-color: inherit;
+$tab-item-border-color: $border-color;
+$tab-item-hover-bg: #009688;
+$tab-item-hover-color: $default-white;
+$tab-item-hover-border-color: #009688;
+$tab-item-active-bg: #009688;
+$tab-item-active-color: $default-white;
+$tab-item-active-border-color: #009688;
+
+$sidebar-logo-color: $default-white;
+$sidebar-logo-bg: #007d71;
+$sidebar-logo-width: 70px;
+$sidebar-bg: #222d32;
+$sidebar-color: $default-white;
+$sidebar-active-bg: #0d1214;
+$sidebar-active-color: $default-white;
+$sidebar-hover-bg: #0d1214;
+$sidebar-hover-color: $default-white;
