@@ -1,5 +1,6 @@
 import { ClickOutsideDirective } from '../directives/click-outside.directive';
 import { FooterComponent } from './footer/footer.component';
+import { LoadingComponent } from './loading/loading.component';
 import { MainComponent } from './main/main.component';
 import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -13,5 +14,6 @@ export const IONE_COMPONENTS = [
   SidebarItemComponent,
   TabsComponent,
   TopbarComponent,
+  LoadingComponent,
   ClickOutsideDirective,
 ];

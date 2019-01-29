@@ -1,0 +1,12 @@
+<div class="loading-mask">
+  <div class="loading-spinners">
+    <div *ngFor="let spinnerItem of spinnerItems$ | async" class="spinner-item" [ngStyle]="spinnerItem.spinnerItemStyle">
+      <div [ngStyle]="spinnerItem.innerStyle"></div>
+    </div>
+  </div>
+  <div *ngIf="loadingText$ | async; let loadingText" class="loading-text" [ngStyle]="loadingText.style">
+    <span [ngStyle]="loadingText.spanStyle">
+      {{loadingText.text}}
+    </span>
+  </div>
+</div>

@@ -13,7 +13,7 @@ import { reducers } from './stores';
     StoreModule.forFeature('ione', reducers),
   ],
   exports: [
-    ...IONE_COMPONENTS
+    ...IONE_COMPONENTS,
   ],
   providers: [],
 })
