@@ -1,5 +1,7 @@
 import { LoadingService } from './loading.service';
+import { ToastService } from './toast.service';
 
 export const IONE_SERVICES = [
-  LoadingService
+  LoadingService,
+  ToastService
 ];

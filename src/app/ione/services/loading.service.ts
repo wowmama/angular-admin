@@ -7,9 +7,7 @@ import { AddLoading, RemoveLoading } from '../stores/actions/loading.action';
 
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoadingService {
 
   constructor(

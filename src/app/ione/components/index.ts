@@ -5,6 +5,7 @@ import { MainComponent } from './main/main.component';
 import { SidebarItemComponent } from './sidebar-item/sidebar-item.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { ToastItemComponent } from './toast-item/toast-item.component';
 import { ToastsComponent } from './toasts/toasts.component';
 import { TopbarComponent } from './topbar/topbar.component';
 
@@ -18,4 +19,5 @@ export const IONE_COMPONENTS = [
   LoadingComponent,
   ClickOutsideDirective,
   ToastsComponent,
+  ToastItemComponent,
 ];

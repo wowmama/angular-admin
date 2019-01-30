@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { IONE_COMPONENTS } from './components';
+import { IONE_EFFECTS } from './effects';
 import { IONE_SERVICES } from './services';
 import { reducers } from './stores';
 
@@ -12,12 +14,17 @@ import { reducers } from './stores';
   imports: [
     CommonModule,
     StoreModule.forFeature('ione', reducers),
+    EffectsModule.forFeature(IONE_EFFECTS)
   ],
   exports: [
     ...IONE_COMPONENTS,
-  ],
-  providers: [
-    ...IONE_SERVICES
-  ],
+  ]
 })
-export class IoneModule { }
+export class IoneModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: IoneModule,
+      providers: IONE_SERVICES
+    };
+  }
+}

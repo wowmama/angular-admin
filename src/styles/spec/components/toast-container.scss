@@ -6,4 +6,19 @@
   max-height: 80%;
   overflow: auto;
   z-index: 800;
+  .toast {
+    cursor: pointer;
+  }
+
+  app-toast-item:not(:last-child) {
+    .toast {
+      margin-bottom: $toast-padding-x;
+    }
+  }
 }
+
+// @each $color, $value in $theme-colors {
+//   .toast-#{$color} {
+//     @include toast-variant($value);
+//   }
+// }
