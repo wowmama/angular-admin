@@ -1,5 +1,5 @@
 <div class="toast show" (click)="handleToastClick()" [ngClass]="toastClass | async">
-  <div class="toast-header">
+  <div *ngIf="toast.title" class="toast-header">
     <strong class="mr-auto">{{toast.title}}</strong>
     <small>{{toast.subTile}}</small>
     <button type="button" class="ml-2 mb-1 close" aria-label="Close" (click)="handleRemoveToast()">

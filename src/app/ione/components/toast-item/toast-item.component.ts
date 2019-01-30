@@ -8,7 +8,6 @@ import { RemoveToast } from '../../stores/actions/toast.action';
 @Component({
   selector: 'app-toast-item',
   templateUrl: './toast-item.component.html',
-  styleUrls: ['./toast-item.component.scss']
 })
 export class ToastItemComponent implements OnInit, AfterViewInit {
 
@@ -38,7 +37,6 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
 
   get toastClass() {
     let toastClass = '';
-    console.log('toast type', this.toast.type);
     switch (this.toast.type) {
       case 'info':
         toastClass = 'toast-info';

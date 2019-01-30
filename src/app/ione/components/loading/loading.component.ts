@@ -68,7 +68,7 @@ export class LoadingComponent implements OnInit {
           };
           const innerStyle = {
             'background-color': `${color}`,
-            animation: `spinner-line-fade-quick 1s linear ${duration * index}s infinite normal none running`,
+            animation: `spinner-line-fade-quick 1s linear ${duration * index - 1}s infinite normal none running`,
             'border-radius': `${corners}px`
           };
           return {

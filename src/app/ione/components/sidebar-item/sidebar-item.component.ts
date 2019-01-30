@@ -8,7 +8,6 @@ import { AciteSidebarItem, ToggleSidebarItem } from '../../stores/actions/menu.a
 @Component({
   selector: 'app-sidebar-item',
   templateUrl: './sidebar-item.component.html',
-  styleUrls: ['./sidebar-item.component.scss']
 })
 export class SidebarItemComponent implements OnInit {
 

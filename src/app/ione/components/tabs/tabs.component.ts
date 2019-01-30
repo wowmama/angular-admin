@@ -9,7 +9,6 @@ import { AciteSidebarItem, CloseTab } from '../../stores/actions/menu.action';
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
-  styleUrls: ['./tabs.component.scss']
 })
 export class TabsComponent implements OnInit, OnDestroy {
 

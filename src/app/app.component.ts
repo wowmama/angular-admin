@@ -77,12 +77,7 @@ export class AppComponent implements OnInit {
   handleToastInfo() {
     this.count++;
     this.toastService.info({
-      title: `${new Date().toLocaleDateString()}   ${this.count}`,
-      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
       body: `${new Date().toLocaleDateString()}   ${this.count}`,
-      handle: () => {
-        alert('hello world');
-      }
     });
   }
 }

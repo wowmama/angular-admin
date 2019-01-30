@@ -9,7 +9,6 @@ import { selectToasts } from '../../stores/selectors/toast.selector';
 @Component({
   selector: 'app-toasts',
   templateUrl: './toasts.component.html',
-  styleUrls: ['./toasts.component.scss']
 })
 export class ToastsComponent implements OnInit, OnDestroy {
 
