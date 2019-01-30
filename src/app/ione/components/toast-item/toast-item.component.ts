@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { of } from 'rxjs';
 import { Toast } from '../../models/toast.model';
 import { IoneState } from '../../stores';
 import { RemoveToast } from '../../stores/actions/toast.action';
@@ -33,6 +34,26 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
       this.toast.handle();
     }
     this.store.dispatch(new RemoveToast(this.toast.uuid));
+  }
+
+  get toastClass() {
+    let toastClass = '';
+    console.log('toast type', this.toast.type);
+    switch (this.toast.type) {
+      case 'info':
+        toastClass = 'toast-info';
+        break;
+      case 'warning':
+        toastClass = 'toast-warning';
+        break;
+      case 'success':
+        toastClass = 'toast-success';
+        break;
+      case 'danger':
+        toastClass = 'toast-danger';
+        break;
+    }
+    return of([toastClass]);
   }
 
 }

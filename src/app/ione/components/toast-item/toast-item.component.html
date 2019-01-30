@@ -1,4 +1,4 @@
-<div class="toast show toast-danger" (click)="handleToastClick()">
+<div class="toast show" (click)="handleToastClick()" [ngClass]="toastClass | async">
   <div class="toast-header">
     <strong class="mr-auto">{{toast.title}}</strong>
     <small>{{toast.subTile}}</small>

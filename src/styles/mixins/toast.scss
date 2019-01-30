@@ -1,0 +1,20 @@
+@mixin toast-variant($background, $border) {
+  background-color: $background;
+  color: $background;
+  border-color: rgba($background, 0.1);
+  $toast-box-shadow: 0 0.25rem 0.75rem rgba($background, 0.1);
+
+  .toast-header {
+    border-color: $background;
+    color: $background;
+    background-color: rgba($white, 0.85);
+    background-clip: border-box;
+  }
+  .toast-body {
+    color: $background;
+    background-color: rgba($white, 0.85);
+  }
+  .close {
+    color: $background;
+  }
+}

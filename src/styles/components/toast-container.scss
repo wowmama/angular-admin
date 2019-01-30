@@ -17,8 +17,8 @@
   }
 }
 
-// @each $color, $value in $theme-colors {
-//   .toast-#{$color} {
-//     @include toast-variant($value);
-//   }
-// }
+@each $color, $value in $theme-colors {
+  .toast-#{$color} {
+    @include toast-variant($value, $value);
+  }
+}

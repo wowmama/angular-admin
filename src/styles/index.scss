@@ -1,5 +1,6 @@
-@import "spec/settings/index";
-@import "spec/tools/index";
+@import "settings/index";
+@import "mixins/index";
 @import "~bootstrap/scss/bootstrap";
-@import "spec/index";
+@import "generic/index";
+@import "components/index";
 @import "vendor/index";

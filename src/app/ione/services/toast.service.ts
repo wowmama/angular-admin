@@ -6,7 +6,14 @@ import * as UUID from 'uuid';
 import { Toast } from '../models/toast.model';
 import { IoneState } from '../stores';
 import { ActionTypes, AddToast, RemoveToast } from '../stores/actions/toast.action';
-
+const defaultToast: Toast = {
+  uuid: '',
+  title: '',
+  subTile: '',
+  body: '',
+  type: '',
+  handle: () => { },
+};
 @Injectable()
 export class ToastService {
   @Effect() addToast$ = this.actions$.pipe(
@@ -22,11 +29,28 @@ export class ToastService {
 
   open(toast: Toast): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddToast({ uuid, ...toast }));
+    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast }));
+    return uuid;
+  }
+  info(toast: Toast): string {
+    const uuid: string = UUID.v4();
+    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'info' }));
+    return uuid;
+  }
+  warning(toast: Toast): string {
+    const uuid: string = UUID.v4();
+    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'warning' }));
+    return uuid;
+  }
+  success(toast: Toast): string {
+    const uuid: string = UUID.v4();
+    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'success' }));
+    return uuid;
+  }
+  danger(toast: Toast): string {
+    const uuid: string = UUID.v4();
+    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'danger' }));
     return uuid;
   }
 
-  dismiss(uuid: string) {
-    this.store.dispatch(new RemoveToast(uuid));
-  }
 }

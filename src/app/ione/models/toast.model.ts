@@ -3,5 +3,6 @@ export interface Toast {
   title?: string;
   subTile?: string;
   body: string;
+  type?: '' | 'info' | 'warning' | 'success' | 'danger';
   handle?: () => void;
 }

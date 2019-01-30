@@ -40,4 +40,49 @@ export class AppComponent implements OnInit {
       }
     });
   }
+
+  handleToastSuccess() {
+    this.count++;
+    this.toastService.success({
+      title: `${new Date().toLocaleDateString()}   ${this.count}`,
+      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
+      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      handle: () => {
+        alert('hello world');
+      }
+    });
+  }
+  handleToastDanger() {
+    this.count++;
+    this.toastService.danger({
+      title: `${new Date().toLocaleDateString()}   ${this.count}`,
+      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
+      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      handle: () => {
+        alert('hello world');
+      }
+    });
+  }
+  handleToastWarning() {
+    this.count++;
+    this.toastService.warning({
+      title: `${new Date().toLocaleDateString()}   ${this.count}`,
+      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
+      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      handle: () => {
+        alert('hello world');
+      }
+    });
+  }
+  handleToastInfo() {
+    this.count++;
+    this.toastService.info({
+      title: `${new Date().toLocaleDateString()}   ${this.count}`,
+      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
+      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      handle: () => {
+        alert('hello world');
+      }
+    });
+  }
 }
