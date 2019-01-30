@@ -102,21 +102,26 @@
   height: calc(100vh - #{$header-height});
   list-style: none;
   margin: 0;
+  padding: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0;
   position: relative;
 
-  .dropdown-toggle::after {
-    display: none;
-  }
   .dropdown-menu {
+    display: none;
     margin-top: 0px;
+    background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+    float: none;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
   }
 
-  li {
+  li.sidebar-item {
     position: relative;
-
     &.dropdown {
       .arrow {
         font-size: 10px;
@@ -127,30 +132,20 @@
           right: 25px;
         }
       }
-
-      &.open {
-        > a.sidebar-link {
-          background-color: $sidebar-active-bg;
+    }
+    &.open {
+      > a.sidebar-link {
+        background-color: $sidebar-active-bg;
+        color: $sidebar-active-color;
+        .icon-holder {
           color: $sidebar-active-color;
-          .icon-holder {
-            color: $sidebar-active-color;
-          }
-          > .arrow {
-            transform: rotate(90deg);
-          }
         }
-
-        > ul.dropdown-menu {
-          display: block;
-          background-color: transparent;
-          border-radius: 0;
-          border: 0;
-          box-shadow: none;
-          float: none;
-          padding-top: 0;
-          position: relative;
-          width: 100%;
+        > .arrow {
+          transform: rotate(90deg);
         }
+      }
+      > ul.dropdown-menu {
+        display: block;
       }
     }
 
@@ -164,6 +159,7 @@
       position: relative;
       white-space: nowrap;
       height: 45px;
+      cursor: pointer;
 
       .icon-holder {
         color: $sidebar-color;
@@ -204,22 +200,22 @@
         margin-top: 30px;
       }
     }
-    > li {
+    > li.sidebar-item {
       > ul.dropdown-menu {
         > app-sidebar-item {
-          > li {
+          > li.sidebar-item {
             > a.sidebar-link {
               padding-left: 25px;
             }
             > ul.dropdown-menu {
               > app-sidebar-item {
-                > li {
+                > li.sidebar-item {
                   > a.sidebar-link {
                     padding-left: 40px;
                   }
                   > ul.dropdown-menu {
                     > app-sidebar-item {
-                      > li {
+                      > li.sidebar-item {
                         > a.sidebar-link {
                           padding-left: 55px;
                         }
@@ -278,7 +274,7 @@
 
       .sidebar-menu {
         > app-sidebar-item {
-          > li {
+          > li.sidebar-item {
             > a.sidebar-link {
               justify-content: center;
               padding-right: 10px;
@@ -318,7 +314,7 @@
 
         .sidebar-menu {
           > app-sidebar-item {
-            > li {
+            > li.sidebar-item {
               > a {
                 justify-content: start;
                 padding-right: 0px;

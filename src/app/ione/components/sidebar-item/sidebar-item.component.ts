@@ -29,7 +29,8 @@ export class SidebarItemComponent implements OnInit {
   }
   get dropdownClass() {
     return of({
-      'open': this.menu.open
+      'dropdown': this.menu.subMenus && this.menu.subMenus.length > 0,
+      'open': this.menu.open,
     });
   }
   get subarLinkClass() {
