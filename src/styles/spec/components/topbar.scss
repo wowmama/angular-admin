@@ -75,7 +75,6 @@
       }
       .notifications {
         position: relative;
-
         .counter {
           background-color: $topbar-counter-bg;
           border-radius: 50px;
@@ -88,7 +87,6 @@
           right: $topbar-counter-right;
           top: $topbar-counter-top;
         }
-
         > .dropdown-menu {
           background-color: $topbar-bg;
           min-width: 350px;
@@ -136,6 +134,21 @@
                   color: $topbar-hover-color;
                 }
               }
+            }
+          }
+
+          .notification {
+            overflow: hidden;
+            border-bottom: 1px solid $border-color;
+            display: block;
+            cursor: pointer;
+            .notification-header {
+              display: flex;
+              align-items: center;
+              padding: 0.25rem 20px;
+            }
+            .notification-body {
+              padding: 0.25rem 20px;
             }
           }
 
@@ -273,11 +286,6 @@
 
       @include to($breakpoint-sm) {
         width: 85px;
-      }
-
-      @include placeholder {
-        color: lighten($default-text-color, 20%);
-        font-style: italic;
       }
     }
   }

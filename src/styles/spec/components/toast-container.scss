@@ -1,0 +1,9 @@
+.toast-container {
+  position: fixed;
+  padding: 20px 20px;
+  right: 0;
+  bottom: 0;
+  max-height: 80%;
+  overflow: auto;
+  z-index: 800;
+}
