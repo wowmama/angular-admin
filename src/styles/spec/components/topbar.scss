@@ -47,10 +47,6 @@
           transition: all 0.2s ease-in-out;
           cursor: pointer;
 
-          i {
-            font-size: 17px;
-          }
-
           &:hover,
           &:focus {
             background-color: $topbar-hover-bg;
@@ -173,9 +169,6 @@
           flex-wrap: nowrap;
           .account-img {
             margin-right: 10px;
-            i {
-              font-size: 1.5rem;
-            }
           }
         }
         > .dropdown-menu {
