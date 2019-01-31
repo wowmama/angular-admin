@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { Menu } from '../../models/menu.model';
@@ -14,7 +15,8 @@ export class SidebarItemComponent implements OnInit {
   @Input() menu: Menu;
 
   constructor(
-    private store: Store<IoneState>
+    private store: Store<IoneState>,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -22,6 +24,7 @@ export class SidebarItemComponent implements OnInit {
   handleMenuClick() {
     if (this.menu.link) {
       this.store.dispatch(new AciteSidebarItem(this.menu.uuid));
+      this.router.navigate(this.menu.link, { queryParams: {} });
     } else {
       this.store.dispatch(new ToggleSidebarItem(this.menu.uuid));
     }

@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { fromEvent, ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -22,7 +23,8 @@ export class TabsComponent implements OnInit, OnDestroy {
 
   constructor(
     private renderer: Renderer2,
-    private store: Store<IoneState>
+    private store: Store<IoneState>,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,6 +43,7 @@ export class TabsComponent implements OnInit, OnDestroy {
   handleTabClick(menu: Menu) {
     if (menu.link) {
       this.store.dispatch(new AciteSidebarItem(menu.uuid));
+      this.router.navigate(menu.link, { queryParams: {} });
     }
   }
 

@@ -39,3 +39,10 @@ export const selectIsNotificationDropDownShow = createSelector(
   selectMenuState,
   menuState => menuState.isNotificationDropDownShow
 );
+export const selectIsNotificationAndAccountDropDownShow = createSelector(
+  selectIsAccountDropDownShow,
+  selectIsNotificationDropDownShow,
+  (isAccountShow, isNotificationShow) => {
+    return { isAccountShow, isNotificationShow };
+  }
+);

@@ -18,7 +18,7 @@
       </li> -->
     </ul>
     <ul class="nav-right">
-      <li #notifications class="notifications dropdown" [ngClass]="isNotificationShow | async" (click)="handleNotificationsClick()"
+      <li #notifications class="notifications dropdown" [ngClass]="isNotificationShow$ | async" (click)="handleNotificationsClick()"
         (appClickOutside)="handleNotificationsClose()">
         <span class="counter">3</span>
         <a>
@@ -64,7 +64,7 @@
           </li>
         </ul>
       </li>
-      <li #accountInfo [ngClass]="isAccountInfoShow | async" class="account-info dropdown" (click)="handleAccountInfoClick()"
+      <li #accountInfo [ngClass]="isAccountInfoShow$ | async" class="account-info dropdown" (click)="handleAccountInfoClick()"
         (appClickOutside)="handleAccountInfoClose()">
         <a class="dropdown-toggle">
           <div class="account-img">

@@ -3,7 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { Menu } from '../../models/menu.model';
-import { IoneState, selectBreadcrumbs, selectIsAccountDropDownShow, selectIsNotificationDropDownShow } from '../../stores';
+import { IoneState, selectBreadcrumbs, selectIsAccountDropDownShow, selectIsNotificationAndAccountDropDownShow, selectIsNotificationDropDownShow } from '../../stores';
 import { CloseAccountInfoDropdownMenu, CloseNotificationsDropdownMenu, OpenAccountInfoDropdownMenu, OpenNotificationsDropdownMenu, ToggleSidebar } from '../../stores/actions/menu.action';
 
 @Component({
@@ -21,7 +21,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
     takeUntil(this.destroyed$)
   );
 
-  isAccountInfoShow = this.store.pipe(
+  isAccountInfoShow$ = this.store.pipe(
     select(selectIsAccountDropDownShow),
     map(isShow => {
       return {
@@ -29,7 +29,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
       };
     })
   );
-  isNotificationShow = this.store.pipe(
+  isNotificationShow$ = this.store.pipe(
     select(selectIsNotificationDropDownShow),
     map(isShow => {
       return {
@@ -38,11 +38,21 @@ export class TopbarComponent implements OnInit, OnDestroy {
     })
   );
 
+  isAccountShow: boolean;
+  isNotificationShow: boolean;
+
   constructor(
     private store: Store<IoneState>
   ) { }
 
   ngOnInit() {
+    this.store.pipe(
+      select(selectIsNotificationAndAccountDropDownShow),
+      takeUntil(this.destroyed$)
+    ).subscribe(({ isAccountShow, isNotificationShow }) => {
+      this.isAccountShow = isAccountShow;
+      this.isNotificationShow = isNotificationShow;
+    });
   }
   handleSidebarToggleClick() {
     this.store.dispatch(new ToggleSidebar());
@@ -54,10 +64,14 @@ export class TopbarComponent implements OnInit, OnDestroy {
     this.store.dispatch(new OpenAccountInfoDropdownMenu());
   }
   handleNotificationsClose() {
-    this.store.dispatch(new CloseNotificationsDropdownMenu());
+    if (this.isNotificationShow) {
+      this.store.dispatch(new CloseNotificationsDropdownMenu());
+    }
   }
   handleAccountInfoClose() {
-    this.store.dispatch(new CloseAccountInfoDropdownMenu());
+    if (this.isAccountShow) {
+      this.store.dispatch(new CloseAccountInfoDropdownMenu());
+    }
   }
   ngOnDestroy(): void {
     this.destroyed$.next(true);
