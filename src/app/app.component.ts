@@ -12,7 +12,6 @@ import { MENUS } from './menu';
 })
 export class AppComponent implements OnInit {
   title = 'poc';
-  count = 0;
   constructor(
     private store: Store<any>,
     private loadingService: LoadingService,
@@ -24,60 +23,76 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new LoadMenus(MENUS));
   }
   loading() {
-    const id1 = this.loadingService.open('TEST1');
+    const id1 = this.loadingService.open('Loading');
     setTimeout(() => {
       this.loadingService.dismiss(id1);
     }, 3000);
   }
   handleToast() {
-    this.count++;
     this.toastService.open({
-      title: `${new Date().toLocaleDateString()}   ${this.count}`,
-      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
-      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      title: `Default toast`,
+      subTitle: `subtitle`,
+      body: `Default toast body`,
       handle: () => {
-        alert('hello world');
+        alert('Default toast');
       }
     });
   }
 
   handleToastSuccess() {
-    this.count++;
     this.toastService.success({
-      title: `${new Date().toLocaleDateString()}   ${this.count}`,
-      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
-      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      title: `Success toast`,
+      subTitle: `subtitle`,
+      body: `Success toast body`,
       handle: () => {
-        alert('hello world');
+        alert('Success toast');
       }
     });
   }
   handleToastDanger() {
-    this.count++;
     this.toastService.danger({
-      title: `${new Date().toLocaleDateString()}   ${this.count}`,
-      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
-      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      title: `Danger toast`,
+      subTitle: `subtitle`,
+      body: `Danger toast body`,
       handle: () => {
-        alert('hello world');
+        alert('Danger toast');
       }
     });
   }
   handleToastWarning() {
-    this.count++;
     this.toastService.warning({
-      title: `${new Date().toLocaleDateString()}   ${this.count}`,
-      subTile: `${new Date().toLocaleDateString()}   ${this.count}`,
-      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      title: `Warning toast`,
+      subTitle: `subtitle`,
+      body: `Warning toast body`,
       handle: () => {
-        alert('hello world');
+        alert('Warning toast');
       }
     });
   }
   handleToastInfo() {
-    this.count++;
     this.toastService.info({
-      body: `${new Date().toLocaleDateString()}   ${this.count}`,
+      title: `Info toast`,
+      subTitle: `subtitle`,
+      body: `Info toast body`,
+      handle: () => {
+        alert('Info toast');
+      }
     });
+  }
+  handleToastQuick() {
+    this.toastService.open('Default toast quick use');
+  }
+
+  handleToastSuccessQuick() {
+    this.toastService.success('Success toast quick use');
+  }
+  handleToastDangerQuick() {
+    this.toastService.danger('Danger toast quick use');
+  }
+  handleToastWarningQuick() {
+    this.toastService.warning('Warning toast quick use');
+  }
+  handleToastInfoQuick() {
+    this.toastService.info('Info toast quick use');
   }
 }

@@ -9,7 +9,7 @@ import { ActionTypes, AddToast, RemoveToast } from '../stores/actions/toast.acti
 const defaultToast: Toast = {
   uuid: '',
   title: '',
-  subTile: '',
+  subTitle: '',
   body: '',
   type: '',
   handle: () => { },
@@ -27,29 +27,49 @@ export class ToastService {
     private store: Store<IoneState>
   ) { }
 
-  open(toast: Toast): string {
+  open(toast: Toast | string): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast }));
+    if (typeof toast === 'string') {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, body: toast }));
+    } else {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast }));
+    }
     return uuid;
   }
-  info(toast: Toast): string {
+  info(toast: Toast | string): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'info' }));
+    if (typeof toast === 'string') {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, body: toast, type: 'info' }));
+    } else {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'info' }));
+    }
     return uuid;
   }
-  warning(toast: Toast): string {
+  warning(toast: Toast | string): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'warning' }));
+    if (typeof toast === 'string') {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, body: toast, type: 'warning' }));
+    } else {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'warning' }));
+    }
     return uuid;
   }
-  success(toast: Toast): string {
+  success(toast: Toast | string): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'success' }));
+    if (typeof toast === 'string') {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, body: toast, type: 'success' }));
+    } else {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'success' }));
+    }
     return uuid;
   }
-  danger(toast: Toast): string {
+  danger(toast: Toast | string): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'danger' }));
+    if (typeof toast === 'string') {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, body: toast, type: 'danger' }));
+    } else {
+      this.store.dispatch(new AddToast({ ...defaultToast, uuid, ...toast, type: 'danger' }));
+    }
     return uuid;
   }
 

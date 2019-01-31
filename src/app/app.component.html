@@ -1,10 +1,21 @@
 <app-main>
+  <h5>Loading</h5>
   <div>
-    <button type="button" class="btn btn-primary" (click)="loading()">Loading</button>
-    <button type="button" class="btn btn-secondary" (click)="handleToast()">Toast Default</button>
-    <button type="button" class="btn btn-success" (click)="handleToastSuccess()">Toast Success</button>
-    <button type="button" class="btn btn-danger" (click)="handleToastDanger()">Toast Danger</button>
-    <button type="button" class="btn btn-warning" (click)="handleToastWarning()">Toast Warning</button>
-    <button type="button" class="btn btn-info" (click)="handleToastInfo()">Toast Info</button>
+    <button type="button" class="btn btn-primary ml-2" (click)="loading()">Loading</button>
+  </div>
+  <h5>Toast</h5>
+  <div>
+    <h6>General use</h6>
+    <button type="button" class="btn btn-secondary ml-2" (click)="handleToast()">Toast Default</button>
+    <button type="button" class="btn btn-success ml-2" (click)="handleToastSuccess()">Toast Success</button>
+    <button type="button" class="btn btn-danger ml-2" (click)="handleToastDanger()">Toast Danger</button>
+    <button type="button" class="btn btn-warning ml-2" (click)="handleToastWarning()">Toast Warning</button>
+    <button type="button" class="btn btn-info ml-2" (click)="handleToastInfo()">Toast Info</button>
+    <h6>Quick use</h6>
+    <button type="button" class="btn btn-secondary ml-2" (click)="handleToastQuick()">Toast Default Quick</button>
+    <button type="button" class="btn btn-success ml-2" (click)="handleToastSuccessQuick()">Toast Success Quick</button>
+    <button type="button" class="btn btn-danger ml-2" (click)="handleToastDangerQuick()">Toast Danger Quick</button>
+    <button type="button" class="btn btn-warning ml-2" (click)="handleToastWarningQuick()">Toast Warning Quick</button>
+    <button type="button" class="btn btn-info ml-2" (click)="handleToastInfoQuick()">Toast Info Quick</button>
   </div>
 </app-main>
