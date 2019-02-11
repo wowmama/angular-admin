@@ -9,17 +9,17 @@ export const MENUS: Menu[] = [
       {
         uuid: 'afce25e8-739e-4592-9af0-7b0c146e7cc5',
         name: 'Loading',
-        link: ['pages/ui-services/loading'],
+        link: ['pages', 'ui-services', 'loading'],
       },
       {
         uuid: 'bc14d4fe-3662-429c-b22d-14f33baf0540',
         name: 'Toast',
-        link: ['/pages/ui-services/toast']
+        link: ['pages', 'ui-services', 'toast']
       },
       {
         uuid: '9a742b4f-b916-4764-b8e3-e6a9df7ccbdc',
         name: 'Alert',
-        link: ['/pages/ui-services/alert'],
+        link: ['pages', 'ui-services', 'alert'],
       },
     ]
   },

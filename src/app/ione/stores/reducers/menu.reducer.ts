@@ -3,8 +3,7 @@ import * as fromMenu from '../actions/menu.action';
 export interface MenuState {
   isSidebarCollapsed: boolean;
   menus: Menu[];
-  breadcrumbs: Menu[];
-  tabs: Menu[];
+  breadcrumbs: string[];
   isAccountDropDownShow: boolean;
   isNotificationDropDownShow: boolean;
 }
@@ -13,7 +12,6 @@ export const initailMenuState: MenuState = {
   isSidebarCollapsed: false,
   menus: [],
   breadcrumbs: [],
-  tabs: [],
   isAccountDropDownShow: false,
   isNotificationDropDownShow: false
 };
@@ -36,21 +34,16 @@ export function reducer(
       };
     }
     case fromMenu.ActionTypes.AciteSidebarItem: {
-      const results = activeSidebarItem(state.menus, action.activeUuid);
+      const results = activeSidebarItem(state.menus, action.activeMenuName);
       return {
         ...state,
         menus: results.menus,
-        tabs: addNewTab(state.tabs, results.activeMenu),
-        breadcrumbs: getBreadcrumbs(state.menus, action.activeUuid)
       };
     }
-    case fromMenu.ActionTypes.CloseTab: {
-      const results = closeTab(state.tabs, action.closeUuid);
+    case fromMenu.ActionTypes.UpdateBreadcrumbs: {
       return {
         ...state,
-        menus: activeSidebarItem(state.menus, results.activeUuid).menus,
-        tabs: results.tabs,
-        breadcrumbs: getBreadcrumbs(state.menus, results.activeUuid)
+        breadcrumbs: action.payload.breadcrumbs
       };
     }
     case fromMenu.ActionTypes.ToggleSidebar: {
@@ -88,11 +81,11 @@ export function reducer(
 }
 
 // 取得新的menu狀態
-function activeSidebarItem(menus: Menu[], activeUuid: string): { menus: Menu[], isOpen: boolean, activeMenu: Menu } {
+function activeSidebarItem(menus: Menu[], activeMenuName: string): { menus: Menu[], isOpen: boolean, activeMenu: Menu } {
   let isOpen = false;
   let activeMenu = null;
   const results = menus.map(menu => {
-    if (menu.uuid === activeUuid) {
+    if (menu.name === activeMenuName) {
       isOpen = true;
       activeMenu = { ...menu };
       return {
@@ -101,7 +94,7 @@ function activeSidebarItem(menus: Menu[], activeUuid: string): { menus: Menu[], 
         open: !menu.open,
       };
     } else if (menu.subMenus && menu.subMenus.length > 0) {
-      const subResult = activeSidebarItem(menu.subMenus, activeUuid);
+      const subResult = activeSidebarItem(menu.subMenus, activeMenuName);
       isOpen = isOpen ? isOpen : subResult.isOpen;
       activeMenu = subResult.activeMenu ? { ...subResult.activeMenu } : activeMenu;
       return {
@@ -172,44 +165,4 @@ function getBreadcrumbs(menus: Menu[], uuid: string): Menu[] {
     return results;
   };
   return searchFn(menus, uuid);
-}
-
-function addNewTab(tabs: Menu[], activeMenu: Menu): Menu[] {
-  let isNewTabs = true;
-  const newTabs = tabs.map(menu => {
-    if (menu.uuid === activeMenu.uuid) {
-      isNewTabs = false;
-      return {
-        ...menu,
-        active: true
-      };
-    } else {
-      return {
-        ...menu,
-        active: false
-      };
-    }
-  });
-  return isNewTabs ? [...newTabs, { ...activeMenu, active: true }] : newTabs;
-}
-
-function closeTab(tabs: Menu[], closeUuid: string): { tabs: Menu[], activeUuid: string } {
-  // 取得当前tab的index
-  const index = tabs.map(tab => tab.uuid).indexOf(closeUuid);
-  const closeMenu: Menu = tabs[index];
-  const newTabs = tabs.filter(tab => tab.uuid !== closeUuid);
-
-  if (!closeMenu.active) {
-    return { tabs: newTabs, activeUuid: newTabs.filter(menu => menu.active)[0].uuid };
-  }
-
-  let activeUuid: string = null;
-  if (newTabs.length > index + 1) {
-    newTabs[index] = { ...newTabs[index], active: true };
-    activeUuid = newTabs[index].uuid;
-  } else if (newTabs.length > 0) {
-    newTabs[newTabs.length - 1] = { ...newTabs[newTabs.length - 1], active: true };
-    activeUuid = newTabs[newTabs.length - 1].uuid;
-  }
-  return { tabs: newTabs, activeUuid };
 }

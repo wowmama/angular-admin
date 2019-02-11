@@ -3,8 +3,7 @@ import { Actions } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { IoneState } from '../../stores';
-import { selectToasts } from '../../stores/selectors/toast.selector';
+import { IoneState, selectToasts } from '../../stores';
 
 @Component({
   selector: 'app-toasts',

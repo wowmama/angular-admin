@@ -10,19 +10,6 @@ export const selectMenus = createSelector(
   selectMenuState,
   menuState => menuState.menus
 );
-export const seleceTabs = createSelector(
-  selectMenuState,
-  menuState => {
-    return menuState.tabs.map(tab => {
-      return {
-        ...tab,
-        class: {
-          active: tab.active
-        }
-      };
-    });
-  },
-);
 export const selectIsSidebarCollapsed = createSelector(
   selectMenuState,
   menuState => menuState.isSidebarCollapsed

@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
 import { Menu } from '../../models/menu.model';
 import { IoneState } from '../../stores';
-import { AciteSidebarItem, ToggleSidebarItem } from '../../stores/actions/menu.action';
+import { ToggleSidebarItem } from '../../stores/actions/menu.action';
 
 @Component({
   selector: 'app-sidebar-item',
@@ -20,11 +20,11 @@ export class SidebarItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
   }
   handleMenuClick() {
     if (this.menu.link) {
-      this.store.dispatch(new AciteSidebarItem(this.menu.uuid));
-      this.router.navigate(this.menu.link, { queryParams: {} });
+      this.router.navigate(this.menu.link);
     } else {
       this.store.dispatch(new ToggleSidebarItem(this.menu.uuid));
     }

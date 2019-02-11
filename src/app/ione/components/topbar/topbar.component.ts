@@ -2,7 +2,6 @@ import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/co
 import { select, Store } from '@ngrx/store';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
-import { Menu } from '../../models/menu.model';
 import { IoneState, selectBreadcrumbs, selectIsAccountDropDownShow, selectIsNotificationAndAccountDropDownShow, selectIsNotificationDropDownShow } from '../../stores';
 import { CloseAccountInfoDropdownMenu, CloseNotificationsDropdownMenu, OpenAccountInfoDropdownMenu, OpenNotificationsDropdownMenu, ToggleSidebar } from '../../stores/actions/menu.action';
 
@@ -16,7 +15,7 @@ export class TopbarComponent implements OnInit, OnDestroy {
   @ViewChild('accountInfo') accountInfo: ElementRef;
 
   private destroyed$: ReplaySubject<boolean> = new ReplaySubject(1);
-  breadcrumbs: Observable<Menu[]> = this.store.pipe(
+  breadcrumbs: Observable<string[]> = this.store.pipe(
     select(selectBreadcrumbs),
     takeUntil(this.destroyed$)
   );

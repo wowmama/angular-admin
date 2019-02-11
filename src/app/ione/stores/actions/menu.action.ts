@@ -4,8 +4,8 @@ import { Menu } from '../../models/menu.model';
 export enum ActionTypes {
   LoadMenus = '[Menu] Load menus',
   AciteSidebarItem = '[Menu] Active sidebar item',
+  UpdateBreadcrumbs = '[Menu] Update breadcrumbs',
   ToggleSidebarItem = '[Menu] Toggle sidebar item',
-  CloseTab = '[Menu] Close tab',
   ToggleSidebar = '[Menu] Toggle sidebar',
   OpenNotificationsDropdownMenu = '[Menu] Open notifications dropdown menu',
   CloseNotificationsDropdownMenu = '[Menu] Close notifications dropdown menu',
@@ -22,7 +22,14 @@ export class LoadMenus implements Action {
 export class AciteSidebarItem {
   readonly type = ActionTypes.AciteSidebarItem;
   constructor(
-    public activeUuid: string
+    public activeMenuName: string
+  ) {
+  }
+}
+export class UpdateBreadcrumbs {
+  readonly type = ActionTypes.UpdateBreadcrumbs;
+  constructor(
+    public payload: { breadcrumbs: string[] }
   ) {
   }
 }
@@ -30,13 +37,6 @@ export class ToggleSidebarItem {
   readonly type = ActionTypes.ToggleSidebarItem;
   constructor(
     public activeUuid: string
-  ) {
-  }
-}
-export class CloseTab {
-  readonly type = ActionTypes.CloseTab;
-  constructor(
-    public closeUuid: string
   ) {
   }
 }
@@ -61,8 +61,8 @@ export class CloseAccountInfoDropdownMenu implements Action {
 
 export type MenuAction = LoadMenus
   | AciteSidebarItem
+  | UpdateBreadcrumbs
   | ToggleSidebarItem
-  | CloseTab
   | ToggleSidebar
   | OpenNotificationsDropdownMenu
   | CloseNotificationsDropdownMenu

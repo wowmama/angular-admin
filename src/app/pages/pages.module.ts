@@ -11,7 +11,7 @@ const PAGES_COMPONENTS = [
 @NgModule({
   imports: [
     PagesRoutingModule,
-    IoneModule
+    IoneModule.forChild()
   ],
   declarations: [
     ...PAGES_COMPONENTS,

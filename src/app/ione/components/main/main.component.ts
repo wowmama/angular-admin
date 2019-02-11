@@ -1,4 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Actions } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
@@ -31,10 +33,13 @@ export class MainComponent implements OnInit, OnDestroy {
   );
 
   constructor(
-    private store: Store<IoneState>
+    private store: Store<IoneState>,
+    private actions$: Actions,
+    private router: Router,
   ) { }
 
   ngOnInit() {
+
   }
 
   ngOnDestroy(): void {

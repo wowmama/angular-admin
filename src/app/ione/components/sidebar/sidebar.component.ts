@@ -18,7 +18,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   );
 
   constructor(
-    private store: Store<IoneState>
+    private store: Store<IoneState>,
   ) { }
 
   ngOnInit() {

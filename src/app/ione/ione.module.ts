@@ -1,24 +1,23 @@
-import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { IONE_COMPONENTS } from './components';
+import { Router } from '@angular/router';
+import { Actions, EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { Store, StoreModule } from '@ngrx/store';
+import { IoneComponentsModule } from './components/ione-components.module';
 import { IONE_EFFECTS } from './effects';
+import { CustomSerializer } from './router/custom-route-serializer';
 import { IONE_SERVICES } from './services';
-import { reducers } from './stores';
+import { IoneState, reducers } from './stores';
 
 @NgModule({
-  declarations: [
-    ...IONE_COMPONENTS,
-  ],
   imports: [
-    CommonModule,
+    IoneComponentsModule,
     StoreModule.forFeature('ione', reducers),
-    EffectsModule.forFeature(IONE_EFFECTS)
+    EffectsModule.forFeature(IONE_EFFECTS),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer
+    }),
   ],
-  exports: [
-    ...IONE_COMPONENTS,
-  ]
 })
 export class IoneModule {
   static forRoot(): ModuleWithProviders {
@@ -26,5 +25,17 @@ export class IoneModule {
       ngModule: IoneModule,
       providers: IONE_SERVICES
     };
+  }
+  static forChild(): ModuleWithProviders {
+    return {
+      ngModule: IoneComponentsModule,
+    };
+  }
+
+  constructor(
+    private store: Store<IoneState>,
+    private actions$: Actions,
+    private router: Router
+  ) {
   }
 }

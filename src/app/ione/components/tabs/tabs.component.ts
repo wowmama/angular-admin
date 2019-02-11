@@ -1,11 +1,12 @@
 import { Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Actions } from '@ngrx/effects';
 import { select, Store } from '@ngrx/store';
 import { fromEvent, ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { Menu } from '../../models/menu.model';
+import { Tab } from '../../models/tab.model';
 import { IoneState, seleceTabs } from '../../stores';
-import { AciteSidebarItem, CloseTab } from '../../stores/actions/menu.action';
+import { CloseTab } from '../../stores/actions/tab.action';
 
 @Component({
   selector: 'app-tabs',
@@ -24,7 +25,8 @@ export class TabsComponent implements OnInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     private store: Store<IoneState>,
-    private router: Router
+    private router: Router,
+    private actions$: Actions,
   ) { }
 
   ngOnInit() {
@@ -38,19 +40,16 @@ export class TabsComponent implements OnInit, OnDestroy {
       );
       $event.preventDefault();
     });
+
+
   }
 
-  handleTabClick(menu: Menu) {
-    if (menu.link) {
-      this.store.dispatch(new AciteSidebarItem(menu.uuid));
-      this.router.navigate(menu.link, { queryParams: {} });
-    }
+  handleTabClick(tab: Tab) {
+    this.router.navigate([tab.url], { queryParams: {} });
   }
 
-  handleTabClose(menu: Menu) {
-    if (menu.link) {
-      this.store.dispatch(new CloseTab(menu.uuid));
-    }
+  handleTabClose(tab: Tab) {
+    this.store.dispatch(new CloseTab({ tab }));
   }
 
   ngOnDestroy(): void {

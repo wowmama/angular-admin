@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Actions } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { LoadMenus } from './ione/stores/actions/menu.action';
 import { MENUS } from './menu';
@@ -9,9 +10,9 @@ import { MENUS } from './menu';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'poc';
   constructor(
     private store: Store<any>,
+    private actions$: Actions,
   ) {
 
   }
