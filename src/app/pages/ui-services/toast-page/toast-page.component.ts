@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ionePage } from 'src/app/ione/decorators/ione-page.decorator';
+import { IonePage } from 'src/app/ione/decorators/ione-page.decorator';
 import { ToastService } from 'src/app/ione/services/toast.service';
-@ionePage({
+@IonePage({
   name: 'Toast',
   breadcrumbs: ['UI Services', 'Toast'],
 })

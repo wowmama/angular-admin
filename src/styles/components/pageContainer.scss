@@ -40,7 +40,8 @@
 }
 
 .remain-height {
-  height: calc(100vh - #{$header-height + 61px});
+  height: calc(100vh - #{$header-height + $tabs-height + 61px});
+  overflow: hidden;
 }
 
 // ---------------------------------------------------------

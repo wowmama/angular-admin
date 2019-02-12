@@ -1,4 +1,5 @@
 import { ClickOutsideDirective } from '../directives/click-outside.directive';
+import { AlertComponent } from './alert/alert.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MainComponent } from './main/main.component';
@@ -20,4 +21,5 @@ export const IONE_COMPONENTS = [
   ClickOutsideDirective,
   ToastsComponent,
   ToastItemComponent,
+  AlertComponent,
 ];

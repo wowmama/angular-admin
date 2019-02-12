@@ -1,5 +1,6 @@
 import * as routerStore from '@ngrx/router-store';
 import { ActionReducerMap, createFeatureSelector } from '@ngrx/store';
+import * as fromAlert from './alert.reducer';
 import * as fromLoading from './loading.reducer';
 import * as fromMenu from './menu.reducer';
 import * as fromTab from './tab.reducer';
@@ -11,6 +12,7 @@ export interface IoneState {
   tabState: fromTab.TabState;
   loadingState: fromLoading.LoadingState;
   toastState: fromToast.ToastState;
+  alertState: fromAlert.AlertState;
   router: routerStore.RouterReducerState;
 }
 
@@ -19,6 +21,7 @@ export const reducers: ActionReducerMap<IoneState> = {
   tabState: fromTab.reducer,
   loadingState: fromLoading.reducer,
   toastState: fromToast.reducer,
+  alertState: fromAlert.reducer,
   router: routerStore.routerReducer
 };
 

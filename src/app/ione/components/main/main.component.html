@@ -1,6 +1,9 @@
 <ng-container *ngIf="isLoading$ | async">
   <app-loading [text]="(loading$ | async).text"></app-loading>
 </ng-container>
+<ng-container *ngIf="hasAlerts$ | async">
+  <app-alert></app-alert>
+</ng-container>
 
 <div [ngClass]="isSidebarCollapsed | async">
   <app-sidebar></app-sidebar>
@@ -12,7 +15,7 @@
     <!-- Tabs -->
     <app-tabs></app-tabs>
     <!-- App Screen Content -->
-    <main class='main-content'>
+    <main class="main-content">
       <ng-content></ng-content>
     </main>
     <!-- App Screen Footer -->

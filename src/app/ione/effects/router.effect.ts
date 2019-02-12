@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { ROUTER_NAVIGATED } from '@ngrx/router-store';
 import { select, Store } from '@ngrx/store';
 import { map, switchMap, tap, withLatestFrom } from 'rxjs/operators';
-import { IonePage } from '../decorators/ione-page.decorator';
+import { IonePageOption } from '../decorators/ione-page.decorator';
 import { Tab } from '../models/tab.model';
 import { RouterStateUrl } from '../router/custom-route-serializer';
 import { IoneState, selectActiveTab } from '../stores';
@@ -25,9 +25,10 @@ export class RouterEffect {
       let pageName = '';
       let url = '/';
       let breadcrumbs = [];
+      // 判斷若為IonePage(作業component)，需要更新Breadcrumbs，並加上Tab
       if (typeof action.payload.routerState.component.ionePageDecorator === 'function') {
         const routerStateUrl: RouterStateUrl = action.payload.routerState;
-        const ionePage: IonePage = routerStateUrl.component.ionePageDecorator();
+        const ionePage: IonePageOption = routerStateUrl.component.ionePageDecorator();
         pageName = ionePage.name;
         url = routerStateUrl.url;
         breadcrumbs = ionePage.breadcrumbs;

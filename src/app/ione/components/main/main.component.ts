@@ -5,6 +5,7 @@ import { select, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
 import { IoneState, selectIsLoading, selectIsSidebarCollapsed, selectLoading } from '../../stores';
+import { selectHasAlerts } from '../../stores/selectors/alert.selector';
 
 @Component({
   selector: 'app-main',
@@ -29,6 +30,11 @@ export class MainComponent implements OnInit, OnDestroy {
   );
   loading$ = this.store.pipe(
     select(selectLoading),
+    takeUntil(this.destroyed$)
+  );
+
+  hasAlerts$ = this.store.pipe(
+    select(selectHasAlerts),
     takeUntil(this.destroyed$)
   );
 

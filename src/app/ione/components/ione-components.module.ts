@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { IONE_COMPONENTS } from '.';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,7 @@ import { IONE_COMPONENTS } from '.';
     CommonModule
   ],
   exports: [
-    ...IONE_COMPONENTS,
+    MainComponent,
   ]
 })
 export class IoneComponentsModule {

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AlertPageComponent } from './alert-page/alert-page.component';
 import { LoadingPageComponent } from './loading-page/loading-page.component';
 import { ToastPageComponent } from './toast-page/toast-page.component';
 import { UiServicesComponent } from './ui-services.component';
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'toast',
         component: ToastPageComponent
+      },
+      {
+        path: 'alert',
+        component: AlertPageComponent
       },
     ],
   },

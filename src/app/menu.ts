@@ -31,12 +31,12 @@ export const MENUS: Menu[] = [
       {
         uuid: '3f25c868-95e0-4008-b256-026de360ae0c',
         name: '一级菜单1',
-        link: ['/pages/userRelations'],
+        link: ['/'],
       },
       {
         uuid: '5bf5e808-1d9a-47b9-b823-61ad9ae44b47',
         name: '一级菜单2',
-        link: ['/pages/roleRelations'],
+        link: ['/'],
       },
       {
         uuid: 'dce47624-0410-44d2-aa74-9025429fff46',
@@ -46,12 +46,12 @@ export const MENUS: Menu[] = [
           {
             uuid: 'bb8b8ad6-e7a9-47ca-b00d-859ca57187aa',
             name: '二级菜单1',
-            link: ['/pages/roleManage'],
+            link: ['/'],
           },
           {
             uuid: '2738cee7-5545-4371-b2ec-3fd37a2aac1d',
             name: '二级菜单2',
-            link: ['/pages/employees'],
+            link: ['/'],
           },
           {
             uuid: '1bb11ccf-a73e-49df-8d79-33fbb8bfbe6b',
@@ -61,17 +61,17 @@ export const MENUS: Menu[] = [
               {
                 uuid: '343b50e9-4f5d-4357-9934-ee4d43adfc37',
                 name: '三级菜单1',
-                link: ['/pages/roleManage'],
+                link: ['/'],
               },
               {
                 uuid: 'c459fbd5-477e-49a0-a683-ed429c616eb4',
                 name: '三级菜单2',
-                link: ['/pages/employees'],
+                link: ['/'],
               },
               {
                 uuid: '8a239b1a-9ffb-4f82-85bc-d3dd6a6ef5c7',
                 name: '三级菜单3',
-                link: ['/pages/employees'],
+                link: ['/'],
               },
             ]
           },
