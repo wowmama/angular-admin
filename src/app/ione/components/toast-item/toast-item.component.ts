@@ -25,14 +25,14 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
     this.renderComplete.emit(true);
   }
   handleRemoveToast() {
-    this.store.dispatch(new RemoveToast(this.toast.uuid));
+    this.store.dispatch(new RemoveToast({ uuid: this.toast.uuid }));
   }
 
   handleToastClick() {
     if (typeof this.toast.handle === 'function') {
       this.toast.handle();
     }
-    this.store.dispatch(new RemoveToast(this.toast.uuid));
+    this.store.dispatch(new RemoveToast({ uuid: this.toast.uuid }));
   }
 
   get toastClass() {

@@ -11,7 +11,7 @@ export class ToastEffect {
   @Effect() addToast$ = this.actions$.pipe(
     ofType(ActionTypes.AddToast),
     delay(7000),
-    map((action: AddToast) => new RemoveToast(action.toast.uuid))
+    map((action: AddToast) => new RemoveToast({ uuid: action.payload.uuid }))
   );
 
   constructor(

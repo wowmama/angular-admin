@@ -9,13 +9,13 @@ export enum ActionTypes {
 export class AddToast implements Action {
   readonly type = ActionTypes.AddToast;
   constructor(
-    public toast: Toast
+    public payload: Toast
   ) { }
 }
 export class RemoveToast implements Action {
   readonly type = ActionTypes.RemoveToast;
   constructor(
-    public uuid: string
+    public payload: { uuid: string }
   ) { }
 }
 

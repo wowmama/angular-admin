@@ -24,17 +24,17 @@ export function reducer(
     case fromMenu.ActionTypes.LoadMenus: {
       return {
         ...state,
-        menus: action.menus
+        menus: action.payload.menus
       };
     }
     case fromMenu.ActionTypes.ToggleSidebarItem: {
       return {
         ...state,
-        menus: sidebarItemToggle(state.menus, action.activeUuid),
+        menus: sidebarItemToggle(state.menus, action.payload.activeUuid),
       };
     }
     case fromMenu.ActionTypes.AciteSidebarItem: {
-      const results = activeSidebarItem(state.menus, action.activeMenuName);
+      const results = activeSidebarItem(state.menus, action.payload.activeMenuName);
       return {
         ...state,
         menus: results.menus,

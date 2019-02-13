@@ -26,7 +26,7 @@ export class SidebarItemComponent implements OnInit {
     if (this.menu.link) {
       this.router.navigate(this.menu.link);
     } else {
-      this.store.dispatch(new ToggleSidebarItem(this.menu.uuid));
+      this.store.dispatch(new ToggleSidebarItem({ activeUuid: this.menu.uuid }));
     }
   }
   get dropdownClass() {

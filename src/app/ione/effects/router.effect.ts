@@ -33,7 +33,7 @@ export class RouterEffect {
         url = routerStateUrl.url;
         breadcrumbs = ionePage.breadcrumbs;
         return [
-          new AciteSidebarItem(pageName),
+          new AciteSidebarItem({ activeMenuName: pageName }),
           new UpdateBreadcrumbs({
             breadcrumbs: breadcrumbs
           }),
@@ -46,7 +46,7 @@ export class RouterEffect {
         ];
       }
       return [
-        new AciteSidebarItem(pageName),
+        new AciteSidebarItem({ activeMenuName: pageName }),
         new UpdateBreadcrumbs({
           breadcrumbs: breadcrumbs
         }),

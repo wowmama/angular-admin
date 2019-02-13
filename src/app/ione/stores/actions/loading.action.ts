@@ -8,8 +8,10 @@ export enum ActionTypes {
 export class AddLoading implements Action {
   readonly type = ActionTypes.AddLoading;
   constructor(
-    public text: string,
-    public uuid: string,
+    public payload: {
+      text: string,
+      uuid: string,
+    }
   ) { }
 }
 export class RemoveLoading implements Action {

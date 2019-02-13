@@ -16,13 +16,13 @@ export enum ActionTypes {
 export class LoadMenus implements Action {
   readonly type = ActionTypes.LoadMenus;
   constructor(
-    public menus: Menu[]
+    public payload: { menus: Menu[] }
   ) { }
 }
 export class AciteSidebarItem {
   readonly type = ActionTypes.AciteSidebarItem;
   constructor(
-    public activeMenuName: string
+    public payload: { activeMenuName: string }
   ) {
   }
 }
@@ -36,7 +36,7 @@ export class UpdateBreadcrumbs {
 export class ToggleSidebarItem {
   readonly type = ActionTypes.ToggleSidebarItem;
   constructor(
-    public activeUuid: string
+    public payload: { activeUuid: string }
   ) {
   }
 }

@@ -16,13 +16,13 @@ export function reducer(
     case fromToast.ActionTypes.AddToast: {
       return {
         ...state,
-        toasts: [...state.toasts, action.toast]
+        toasts: [...state.toasts, action.payload]
       };
     }
     case fromToast.ActionTypes.RemoveToast: {
       return {
         ...state,
-        toasts: state.toasts.filter(v => v.uuid !== action.uuid)
+        toasts: state.toasts.filter(v => v.uuid !== action.payload.uuid)
       };
     }
   }

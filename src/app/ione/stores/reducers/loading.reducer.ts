@@ -15,8 +15,8 @@ export function reducer(
   switch (action.type) {
     case fromLoading.ActionTypes.AddLoading: {
       const loading: Loading = {
-        uuid: action.uuid,
-        text: action.text
+        uuid: action.payload.uuid,
+        text: action.payload.text
       };
       return {
         ...state,

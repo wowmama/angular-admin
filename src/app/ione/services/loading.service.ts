@@ -16,7 +16,7 @@ export class LoadingService {
 
   open(text: string = ''): string {
     const uuid: string = UUID.v4();
-    this.store.dispatch(new AddLoading(text, uuid));
+    this.store.dispatch(new AddLoading({ text, uuid }));
     return uuid;
   }
 
