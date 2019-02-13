@@ -12,6 +12,10 @@ const routes: Routes = [
         path: 'ui-services',
         loadChildren: './ui-services/ui-services.module#UiServicesModule',
       },
+      {
+        path: 'marketing-activities-management',
+        loadChildren: './marketing-activities-management/marketing-activities-management.module#MarketingActivitiesManagementModule',
+      },
 
     ],
   },

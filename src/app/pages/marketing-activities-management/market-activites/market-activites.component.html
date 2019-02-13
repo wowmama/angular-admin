@@ -1,0 +1,76 @@
+<div>
+  <form class="form-inline">
+    <div class="form-group ml-2 mb-2">
+      <label for="keywords" class="mr-2">营销活动</label>
+      <input type="text" class="form-control" id="keywords" name="keywords">
+    </div>
+    <div class="form-group ml-2 mb-2">
+      <label for="status" class="mr-2">启用状态</label>
+      <select class="form-control" id="status" name="status">
+        <option value>全部</option>
+        <option value="1">启用</option>
+        <option value="2">停用</option>
+      </select>
+    </div>
+    <div class="form-group ml-2 mb-2">
+      <label for="confirm" class="mr-2">审核状态</label>
+      <select class="form-control" id="confirm" name="confirm">
+        <option value>全部</option>
+        <option value="1">未审核</option>
+        <option value="2">已审核</option>
+      </select>
+    </div>
+    <div class="form-group ml-2 mb-2">
+      <label for="startTime" class="mr-2">开始时间</label>
+      <input type="date" class="form-control" id="startTime" name="startTime">
+    </div>
+    <div class="form-group ml-2 mb-2">
+      <label for="endTime" class="mr-2">结束时间</label>
+      <input type="date" class="form-control" id="endTime" name="endTime">
+    </div>
+    <div class="form-group ml-2 mb-2">
+      <button type="submit" class="btn btn-primary" (click)="search()">查询</button>
+    </div>
+  </form>
+  <div class="row mt-3">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>活动代码</th>
+            <th>活动名称</th>
+            <th>开始日期</th>
+            <th>结束日期</th>
+            <th>结算日期</th>
+            <th>状态</th>
+            <th>审批人</th>
+            <th>审核状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let marketActivity of marketActivities$ | async">
+            <td>{{ marketActivity.activityCode }}</td>
+            <td>{{ marketActivity.name}}</td>
+            <td>{{ marketActivity.startTime | date:'yyyy-MM-dd' }}</td>
+            <td>{{ marketActivity.endTime | date:'yyyy-MM-dd' }}</td>
+            <td>{{ marketActivity.settlementDate |
+              date:'yyyy-MM-dd' }}</td>
+            <td>
+              <ng-container [ngSwitch]="marketActivity.status">
+                <ng-container *ngSwitchCase="'1'">启用</ng-container>
+                <ng-container *ngSwitchCase="'2'">停用</ng-container>
+              </ng-container>
+            </td>
+            <td>{{ marketActivity.approverName }}</td>
+            <td>
+              <ng-container [ngSwitch]="marketActivity.confirm">
+                <ng-container *ngSwitchCase="'1'">未审核</ng-container>
+                <ng-container *ngSwitchCase="'2'">已审核</ng-container>
+              </ng-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

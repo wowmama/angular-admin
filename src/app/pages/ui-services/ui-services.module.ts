@@ -10,7 +10,8 @@ import { UiServicesComponent } from './ui-services.component';
 const UI_SERVICES_COMPONENTS = [
   LoadingPageComponent,
   ToastPageComponent,
-  UiServicesComponent
+  UiServicesComponent,
+  AlertPageComponent,
 ];
 
 @NgModule({
@@ -20,7 +21,6 @@ const UI_SERVICES_COMPONENTS = [
   ],
   declarations: [
     UI_SERVICES_COMPONENTS,
-    AlertPageComponent,
   ],
 })
 export class UiServicesModule {
