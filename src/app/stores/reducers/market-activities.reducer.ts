@@ -1,17 +1,14 @@
 import { IonePager } from 'src/app/ione/models/ione-pager.model';
-import { IoneQueryBuilder, IoneQueryControl } from 'src/app/ione/models/ione-query.model';
+import { QueryGroup } from 'src/app/ione/models/query.model';
+import { QueryBuilder } from 'src/app/ione/services/query-builder.service';
 import { MarketActivity } from 'src/app/models/market-activity.model';
 import * as fromMarketActivities from '../actions/market-activities.action';
+
+const qb = new QueryBuilder();
 export interface MarketActivitiesState {
   pager: IonePager;
   marketActivities: MarketActivity[];
-  query: {
-    keywords: IoneQueryControl,
-    status: IoneQueryControl,
-    confirm: IoneQueryControl,
-    startTime: IoneQueryControl,
-    endTime: IoneQueryControl,
-  };
+  query: QueryGroup;
 }
 
 export const initailMarketActivitiesState: MarketActivitiesState = {
@@ -23,13 +20,13 @@ export const initailMarketActivitiesState: MarketActivitiesState = {
     first: false,
     last: false,
   },
-  query: {
-    keywords: IoneQueryBuilder.control('', ['name', 'activityCode', 'remark']),
-    status: IoneQueryBuilder.control('', ['status']),
-    confirm: IoneQueryBuilder.control('', ['confirm']),
-    startTime: IoneQueryBuilder.control('', ['startTime']),
-    endTime: IoneQueryBuilder.control('', ['endTime']),
-  },
+  query: qb.group({
+    keywords: qb.control('', ['name', 'activityCode', 'remark']),
+    status: qb.control('', ['status']),
+    confirm: qb.control('', ['confirm']),
+    startTime: qb.control('', ['startTime'], '', 'or', 'greaterThanOrEqualTo'),
+    endTime: qb.control('', ['endTime'], '', 'or', 'lessThanOrEqualTo'),
+  }),
   marketActivities: [],
 };
 
@@ -47,10 +44,7 @@ export function reducer(
       return {
         ...state,
         marketActivities: [],
-        query: {
-          ...state.query,
-          ...action.payload.query
-        }
+        query: state.query.patchValue(action.payload.query)
       };
     }
     case fromMarketActivities.ActionTypes.GetMarketActivitiesSucceed: {

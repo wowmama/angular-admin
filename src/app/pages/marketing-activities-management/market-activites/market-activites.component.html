@@ -1,12 +1,12 @@
-<div>
-  <form class="form-inline">
+<div class="px-2 py-3 bg-white">
+  <form [formGroup]="queryForm" class="form-inline">
     <div class="form-group ml-2 mb-2">
       <label for="keywords" class="mr-2">营销活动</label>
-      <input type="text" class="form-control" id="keywords" name="keywords">
+      <input type="text" class="form-control" id="keywords" formControlName="keywords">
     </div>
     <div class="form-group ml-2 mb-2">
       <label for="status" class="mr-2">启用状态</label>
-      <select class="form-control" id="status" name="status">
+      <select class="form-control" id="status" formControlName="status">
         <option value>全部</option>
         <option value="1">启用</option>
         <option value="2">停用</option>
@@ -14,7 +14,7 @@
     </div>
     <div class="form-group ml-2 mb-2">
       <label for="confirm" class="mr-2">审核状态</label>
-      <select class="form-control" id="confirm" name="confirm">
+      <select class="form-control" id="confirm" formControlName="confirm">
         <option value>全部</option>
         <option value="1">未审核</option>
         <option value="2">已审核</option>
@@ -22,11 +22,11 @@
     </div>
     <div class="form-group ml-2 mb-2">
       <label for="startTime" class="mr-2">开始时间</label>
-      <input type="date" class="form-control" id="startTime" name="startTime">
+      <input type="date" class="form-control" id="startTime" formControlName="startTime">
     </div>
     <div class="form-group ml-2 mb-2">
       <label for="endTime" class="mr-2">结束时间</label>
-      <input type="date" class="form-control" id="endTime" name="endTime">
+      <input type="date" class="form-control" id="endTime" formControlName="endTime">
     </div>
     <div class="form-group ml-2 mb-2">
       <button type="submit" class="btn btn-primary" (click)="search()">查询</button>
@@ -34,7 +34,7 @@
   </form>
   <div class="row mt-3">
     <div class="col-12">
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>活动代码</th>

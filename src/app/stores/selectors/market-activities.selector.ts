@@ -1,21 +1,23 @@
-import { createSelector } from '@ngrx/store';
-import { IoneQueryBuilder } from 'src/app/ione/models/ione-query.model';
-import { AppState, selectApp } from '../reducers';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { MarketActivitiesState } from '../reducers/market-activities.reducer';
 
-export const selectMarketActivitiesState = createSelector(
-  selectApp,
-  (state: AppState) => state.marketActivitiesState,
-);
+export const selectMarketActivitiesState = createFeatureSelector<MarketActivitiesState>('marketActivitiesState');
 
 export const selectMarketActivities = createSelector(
   selectMarketActivitiesState,
   marketActivitiesState => marketActivitiesState.marketActivities
 );
 
+export const selectMarketActivitiesQuerys = createSelector(
+  selectMarketActivitiesState,
+  marketActivitiesState => marketActivitiesState.query
+);
+
 export const selectselectMarketActivitiesParams = createSelector(
   selectMarketActivitiesState,
   marketActivitiesState => {
-    const params = IoneQueryBuilder.getParams(marketActivitiesState.query);
+    const params = marketActivitiesState.query.params;
+    console.log(params);
     return {
       ...params,
       ...marketActivitiesState.pager

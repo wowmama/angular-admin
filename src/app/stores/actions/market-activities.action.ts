@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { IonePager } from 'src/app/ione/models/ione-pager.model';
-import { IoneQueryControl } from 'src/app/ione/models/ione-query.model';
 import { MarketActivity } from 'src/app/models/market-activity.model';
 
 export enum ActionTypes {
@@ -18,11 +17,11 @@ export class GetMarketActivities implements Action {
   constructor(
     public payload: {
       query: {
-        keywords?: IoneQueryControl,
-        status?: IoneQueryControl,
-        confirm?: IoneQueryControl,
-        startTime?: IoneQueryControl,
-        endTime?: IoneQueryControl,
+        keywords?: any,
+        status?: any,
+        confirm?: any,
+        startTime?: any,
+        endTime?: any,
       }
     }
   ) { }
